@@ -7,6 +7,7 @@ import java.util.*;
 import java.io.*;
 import java.lang.Math;
 
+
 /* Creating a HashTable
  *        Chaining example for collisions
  *        It is possible that the hash function will return the same
@@ -39,7 +40,7 @@ public class HashTable {
     }
 
     public void put(String key, Integer value){
-        int index = key.hashCode() % ARR_SIZE;
+        int index = Math.abs(key.hashCode() % ARR_SIZE);
         LinkedList<HTObject> items = arr[index];
 
         if(items == null) {
@@ -70,7 +71,7 @@ public class HashTable {
         if(key == null)
             return null;
 
-        int index = key.hashCode() % ARR_SIZE;
+        int index = Math.abs(key.hashCode() % ARR_SIZE);
         LinkedList<HTObject> items = arr[index];
 
         if (items == null)
@@ -95,8 +96,8 @@ public class HashTable {
     }
 
 
-    private void delete(String key) {
-        int index = key.hashCode() % ARR_SIZE;
+    public void delete(String key) {
+        int index = Math.abs(key.hashCode() % ARR_SIZE);
         LinkedList<HTObject> items = arr[index];
 
         if (items == null)
@@ -109,7 +110,7 @@ public class HashTable {
             }
     }
 
-    public static void main(String args[]){
-
+    public static void main(String args[]) {
+        System.out.println(" Test ");
     }
 }
