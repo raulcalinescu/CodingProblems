@@ -5,7 +5,7 @@ import java.lang.*;
 
 public class longestWord {
 
-    public static char[] max = new char[]{}; //{'a','s','d','e','3','d','h','g','t','y'};
+    public static char[] max = new char[]{'a'}; //{'a','s','d','e','3','d','h','g','t','y'};
     public static int k = 0;
     public static String word;
 
@@ -17,7 +17,7 @@ public class longestWord {
             while (k < a.length - 1) {
                 for (int j = k+1; j < a.length; j++) {
                     word = word + String.valueOf(a[j]);
-                    if ((longestWord.isWord(word)) && (word.length() < String.valueOf(max).length())) {
+                    if ((longestWord.isWord(word)) && (word.length() > String.valueOf(max).length())) {
                         max = word.toCharArray();
                     }
                 }
