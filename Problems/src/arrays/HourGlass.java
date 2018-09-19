@@ -11,6 +11,23 @@ import java.util.regex.*;
 public class HourGlass {
 
     // Complete the hourglassSum function below.
+
+    /* Optimal Solution:
+
+       int maxsum = -1000,jj = 0;
+    for(int i = 0;i < 4;i++) {
+        int sum = 0;
+        for(int j = jj;j < jj+3;j++) {
+            sum += matrix[i][j];
+            if(j==jj) sum += matrix[i+1][jj+1];
+            sum += matrix[i+2][j];
+        }
+        jj = (jj < 3) ? jj+1 : 0;
+        if(sum > maxsum) maxsum = sum;
+        if(jj != 0) i--;
+    }
+     */
+
     static int hourglassSum(int[][] arr) {
         int max=-999999 ,sum = 0, c=0;
 
