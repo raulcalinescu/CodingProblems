@@ -1,11 +1,6 @@
-package problems;
+package algorithms;
 
-import com.sun.xml.internal.xsom.impl.scd.Iterators;
-
-import java.lang.reflect.Array;
 import java.util.*;
-import java.io.*;
-import java.lang.Math;
 
 /* Creating a HashTable
 *        Chaining example for collisions

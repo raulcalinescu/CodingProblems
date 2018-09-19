@@ -1,4 +1,4 @@
-package problems;
+package algorithms;
 
 /*
 John works at a clothing store. He has a large pile of socks that he must pair by color for sale. Given an array of
@@ -35,12 +35,7 @@ Sample Output
 
 
 import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
 
 public class PairSocks {
 
