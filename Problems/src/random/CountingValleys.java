@@ -63,7 +63,7 @@ public class CountingValleys {
 
     // Complete the countingValleys function below.
     static int countingValleys(String s) {
-        int valleyCount = 0, goingUp = 0, goingDown = 0, steps = 0;
+        int valleyCount = 0, goingUp = 0, goingDown = 0;
         boolean valley = false;
 
         for (int i = 0; i < s.length(); i++) {
