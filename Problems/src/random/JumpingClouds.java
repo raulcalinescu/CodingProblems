@@ -19,7 +19,7 @@ It is always possible to win the game.  0 1 0 0 0 1 0
 
 For each game, Emma will get an array of clouds numbered if they are safe or if they must be avoided.
 The number on each cloud is its index in the list so she must avoid the clouds at indexes and .
-She could follow the following two paths: 0 - 2 - 4 - 6 or 0 - 2 - 3 - 4 -6.
+She could follow the following two paths: 0 - 2 - 4 - 6 or 0 - 2 - 3 - 4 - 6.
 The first path takes 3 jumps while the second takes 4.
 Minimum is 3 here.
 
