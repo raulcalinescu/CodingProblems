@@ -38,8 +38,8 @@ public class JumpingClouds {
             } else {
                     jumps = jumps + zeros / 2 + 1;      // when we have a 1, we add the jump
                     zeros = 0;                          // and we also add the number of jumps required over 0s which
-            }                                           // equals to the floor approximation of total 0s accumulated
-                                                        // until a 1 is found divided by 2
+            }                                           // equals to the floor approximation of [ (total 0s accumulated
+                                                        // until a 1 is found) divided by 2 ]
 
             if (i == c.length - 1 && zeros != 0)        // consider case when we have more than one
                 jumps = jumps + zeros / 2;              // zero after the last 1 in the array
