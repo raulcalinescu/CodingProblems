@@ -9,6 +9,7 @@ public class longestWord {
     public static int k = 0;
     public static String word;
 
+
     public static char[] findMaxWord(char[] a) {
         for (int i = 0; i < a.length; i++) {
             k = i;
@@ -28,19 +29,38 @@ public class longestWord {
         return max;
     }
 
+
+    public static char[] findMaxRec(char[] c) {
+        String subs, temp = new String();
+
+        if (longestWord.isWord(String.valueOf(c)))
+            return c;
+        else {
+            for (int i = 0; i < c.length; i++) {
+                subs = String.valueOf(c).substring(0, i) + String.valueOf(c).substring(i + 1);
+               if (longestWord.isWord(subs))
+                   return subs.toCharArray();
+               if (i > 0)
+                   temp = temp + String.valueOf(c[i]);
+            }
+            return findMaxRec(temp.toCharArray());
+        }
+    }
+
     public static boolean isWord(String w) {   // brute force Dictionary dummy function for testing purposes
-        if(w.equals("lemon") | w.equals("monday") | w.equals("day") | w.equals("on"))
+        if(w.equals("on") | w.equals("nut")) // | w.equals("day") | w.equals("on") | w.equals("lemonade"))
             return true;
         else
             return false;
     }
 
     public static void main (String[] Args) {
-
+        String result = new String();
         Scanner sc = new Scanner(System.in);
         char[] a = sc.next().toCharArray();
-        System.out.println(longestWord.findMaxWord(a));
+        System.out.println(longestWord.findMaxRec(a));
 
+        }
     }
 
-}
+
