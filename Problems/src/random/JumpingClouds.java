@@ -23,7 +23,7 @@ She could follow the following two paths: 0 - 2 - 4 - 6 or 0 - 2 - 3 - 4 - 6.
 The first path takes 3 jumps while the second takes 4.
 Minimum is 3 here.
 
- test 0 1 */
+ test 0 1 000 */
 
 public class JumpingClouds {
 
