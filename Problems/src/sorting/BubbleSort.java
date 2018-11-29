@@ -12,10 +12,16 @@ public class BubbleSort {
 
     // Complete the countSwaps function below.
     static void countSwaps(int[] a) {
-        int numSwaps = 0;
+        int numSwaps = 0, temp;
 
-        for (int i = 0; i < a.length - 1; i++)
-            for (int j=1; j < a.length; j++)
+        for (int i = 0; i < a.length; i++)
+            for (int j=0; j < a.length - 1; j++)
+                if(a[j] > a[j+1]) {
+                    temp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = temp;
+                }
+
 
         System.out.println("Array is sorted in " + numSwaps + "swaps.");
         System.out.println("First Element: " + a[0]);
