@@ -27,10 +27,11 @@ public class BubbleSort {
                   isSorted = false;
                   numSwaps++;
               }
-          lastUnsorted--;
+          lastUnsorted--;                               // after each iteration, max value gets moved towards the end
+                                                        // so we can save time by shortening the array
       }
 
-        System.out.println("Array is sorted in " + numSwaps + "swaps.");
+        System.out.println("Array is sorted in " + numSwaps + " swaps.");
         System.out.println("First Element: " + a[0]);
         System.out.println("Last Element: " + a[a.length-1]);
 
