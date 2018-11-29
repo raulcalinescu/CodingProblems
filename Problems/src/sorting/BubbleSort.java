@@ -13,15 +13,22 @@ public class BubbleSort {
     // Complete the countSwaps function below.
     static void countSwaps(int[] a) {
         int numSwaps = 0, temp;
+        boolean isSorted = false;
+        int lastUnsorted = a.length - 1;
 
-        for (int i = 0; i < a.length; i++)
-            for (int j=0; j < a.length - 1; j++)
-                if(a[j] > a[j+1]) {
-                    temp = a[j];
-                    a[j] = a[j+1];
-                    a[j+1] = temp;
-                }
+      while (!isSorted) {                               // loop until sorted
+          isSorted = true;
 
+          for (int j = 0; j < lastUnsorted; j++)        // loop the array for consecutive swaps
+              if (a[j] > a[j + 1]) {                     // swap the non sorted elements
+                  temp = a[j];
+                  a[j] = a[j + 1];
+                  a[j + 1] = temp;
+                  isSorted = false;
+                  numSwaps++;
+              }
+          lastUnsorted--;
+      }
 
         System.out.println("Array is sorted in " + numSwaps + "swaps.");
         System.out.println("First Element: " + a[0]);
