@@ -12,8 +12,11 @@ public class ArrayPermutationsCount {
 
     // Complete the minimumBribes function below.
     static void minimumBribes(int[] q) {
-        boolean isSorted = false;
+        boolean isSorted = false, tooChaotic = false;
         int temp, lastUnsorted = q.length - 1;
+        int[] bribes = new int[q.length + 1];
+        /* Each class variable, instance variable, or array component is initialized with a default value when
+        it is created. For type int, the default value is zero, that is, 0. */
 
         while (!isSorted) {
             isSorted = true;
@@ -22,15 +25,28 @@ public class ArrayPermutationsCount {
                 if (q[i] > q[i+1]) {
                     temp = q[i];
                     q[i] = q[i+1];
-                    q[i+1] = q[i];
-                    // add bribe here for q[i]
+                    q[i+1] = temp;
                     isSorted = false;
+                    /* add bribe here for q[i] */
+
+                    bribes[q[i]]++;
+                    if (bribes[q[i]] > 2) {
+                        tooChaotic = true;
+                        break;
+                    }
                 }
             }
+            if (tooChaotic) break;
             lastUnsorted--;
 
         }
-
+        if(tooChaotic)
+            System.out.println();
+        else {
+            for (int i = 1; i < bribes.length; i++)
+                bribes[0] = bribes[0] + bribes[i];
+            System.out.println(bribes[0]);
+        }
     }
 
     private static final Scanner scanner = new Scanner(System.in);
