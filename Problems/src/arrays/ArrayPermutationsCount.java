@@ -50,7 +50,8 @@ public class ArrayPermutationsCount {
                     isSorted = false;                              // if we found a unsorted pair, we weren't sorted yet
                     /* add bribe here for q[i] */
 
-                    bribes[temp]++;                               // count bribes for the corresponding person q[i]
+                    bribes[temp]++;                               // count bribes for the corresponding index of
+                                        // array bribes associated with person q[i] who had to bribe to get in front
                     if (bribes[temp] > 2) {                     // if a person bribed more than two times it is too Ch
                         tooChaotic = true;
                         break;
