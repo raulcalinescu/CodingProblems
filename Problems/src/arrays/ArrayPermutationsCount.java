@@ -45,7 +45,7 @@ public class ArrayPermutationsCount {
             for (int i = 0; i < lastUnsorted; i++) {                // traverse until we reached the sorted max section
                 if (q[i] > q[i+1]) {
                     temp = q[i];
-                    q[i] = q[i+1];
+                    q[i] = q[i+1];          // WARNING: q[i] changes here so don't use it as bribing index
                     q[i+1] = temp;
                     isSorted = false;                              // if we found a unsorted pair, we weren't sorted yet
                     /* add bribe here for q[i] */
