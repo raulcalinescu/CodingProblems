@@ -41,7 +41,7 @@ public class ValidIfSameCountCharacters {
                 continue;
             }
 
-            if (i == cnt) continue;     // if the count is the same as the first one loop to next element
+            if (i == cnt) continue;     // if the count is the same as the first one, loop to next element
             else if (i == 1 && firsTime) {  // mark first 1 occurrence so we can invalidate on second 1 or different frequency
                 firsTime = false;
                 continue;
