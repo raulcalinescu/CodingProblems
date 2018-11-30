@@ -46,7 +46,8 @@ public class ValidIfSameCountCharacters {
                 firsTime = false;
                 continue;
             }
-            else if (i == cnt+1 && firsTime) { // mark first 'higher by one' count so we can invalidate if a different count is found
+            else if (i == cnt+1 && firsTime) { // mark first 'higher by one' count so we can invalidate if a different
+                                                // count is found
                 firsTime = false;
                 continue;
             }
