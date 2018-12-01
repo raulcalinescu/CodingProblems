@@ -1,4 +1,4 @@
-package random;
+package strings;
 
 /* Lilah has a string of lowercase English letters that she repeated infinitely many times.
 
