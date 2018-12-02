@@ -8,34 +8,57 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
-public class MaxElmInPriceRange_QuickSort {
+public class QuickSort_MaxElmsInPrice {
 
     // Complete the maximumToys function below.
     static int maximumToys(int[] prices, int k) {
+        int sum = 0, count = 0;
+        quicksort(prices,0,prices.length - 1);
 
-       quicksort(prices,0,prices.length - 1);
-
-        return 0;
+        for (int i = 0; i < prices.length; i++) {
+           if (sum+prices[i] <= k) {
+               sum += prices[i];
+               count++;
+           }
+        }
+        return count;
 
     }
 
     static void quicksort (int[] arr, int left, int right) {    // l is the left most index and r is the right most index.
         if (left >= right) return;     // array of 1
 
-        int pivot = arr[(left + right) / 2];
+        int pivot = arr[(left + right) / 2];      // value of the middle element of array
         int index = partition(arr, left, right, pivot);
-        quicksort(arr, left, index -1;);
+        quicksort(arr, left, index -1);
         quicksort(arr, index, right);
 
     }
 
     static int partition(int[] arr, int left, int right, int pivot) {
         while (left <= right) {
-            while(arr[left] < pivot) {
+            while (arr[left] < pivot) {
+                left ++;
+            }
 
+            while (arr[right] > pivot) {
+                right --;
+            }
+
+            if (left <= right) {
+                swap (arr, left, right);
+                left ++;
+                right --;
             }
         }
+        return left;
+    }
 
+    static void swap (int[] arr, int left, int right){
+        int temp = 0;
+        temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
