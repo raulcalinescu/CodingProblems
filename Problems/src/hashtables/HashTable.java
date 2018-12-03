@@ -1,4 +1,4 @@
-package algorithms;
+package hashtables;
 
 import java.util.*;
 import java.lang.Math;

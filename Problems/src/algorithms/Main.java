@@ -1,5 +1,7 @@
 package algorithms;
 
+import hashtables.HashTable;
+
 public class Main {
 
 

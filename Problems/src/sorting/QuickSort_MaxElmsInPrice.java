@@ -22,7 +22,6 @@ public class QuickSort_MaxElmsInPrice {
            }
         }
         return count;
-
     }
 
     static void quicksort (int[] arr, int left, int right) {    // l is the left most index and r is the right most index.
