@@ -26,6 +26,7 @@ public class HashTable {
         public Integer value;
     }
 
+
     public static final int ARR_SIZE = 128;
     private LinkedList<HTObject>[] arr = new LinkedList[ARR_SIZE];
 
