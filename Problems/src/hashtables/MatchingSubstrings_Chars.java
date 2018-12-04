@@ -19,7 +19,7 @@ Complete the function twoStrings in the editor below. It should return a string,
 strings share a common substring.
  */
 
-public class MatchingSubstrings {
+public class MatchingSubstrings_Chars {
 
     // Complete the twoStrings function below.
 
