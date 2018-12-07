@@ -26,6 +26,7 @@ public class SubstringsAnagrams {
     public static final int ARR_SIZE = 100;
     public static LinkedList<HTObject>[] arr = new LinkedList[ARR_SIZE];
     public static Set<String> uniqueChars = new HashSet();
+    public static StringBuilder s1 = new StringBuilder(), s2 = new StringBuilder();
 
     public static class HTObject {
         public String key;
@@ -46,7 +47,39 @@ public class SubstringsAnagrams {
             }
         }
 
+        char[] sChar = new char[s.length()];
+
+        for (int index = 0; index < sChar.length - 1; index++)
+            for (int i = index; i < sChar.length - 1; i++) {
+                s1.append(sChar[i]);
+
+                while(s2.length() < s1.length()) {
+                    s2.append(sChar[i+1]);
+                }
+                if(anagrams(s1.toString(),s2.toString()))
+                    pairs++;
+            }
+
         return pairs;
+    }
+
+    public static boolean anagrams(String a, String b) {
+        char[] arr = a.toCharArray(), brr = b.toCharArray();
+        boolean iFound = false;
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < brr.length; j++) {
+                if (arr[i] == brr[j]) {
+                    brr[j] = ' ';
+                    iFound = true;
+                    break;
+                }
+            }
+            if (!iFound)
+                return false;
+        }
+
+        return true;
     }
 
     public static void addToHT(String s, Integer index_value) {
