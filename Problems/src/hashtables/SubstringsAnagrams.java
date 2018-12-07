@@ -22,9 +22,10 @@ anagrammatic pairs of substrings in s.
 
 public class SubstringsAnagrams {
 
-    public static int index_value = 0;
+    public static int index_value = 0, pairs = 0;
     public static final int ARR_SIZE = 100;
     public static LinkedList<HTObject>[] arr = new LinkedList[ARR_SIZE];
+    public static Set<String> uniqueChars = new HashSet();
 
     public static class HTObject {
         public String key;
@@ -34,14 +35,21 @@ public class SubstringsAnagrams {
     // Complete the sherlockAndAnagrams function below.
     static int sherlockAndAnagrams(String s) {
         for (char c : s.toCharArray()) {
-            arr[index] = c;
-            index++;
+            addToHT(String.valueOf(c),index_value);
+            index_value++;
         }
 
-        return 0;
+        for (char c : s.toCharArray()) {
+            if (!uniqueChars.contains(String.valueOf(c))) {
+                pairs += getCharacterFrequencyBasedPairs(String.valueOf(c));
+                uniqueChars.add(String.valueOf(c));
+            }
+        }
+
+        return pairs;
     }
 
-    public void addToHT(String s, Integer index_value) {
+    public static void addToHT(String s, Integer index_value) {
         int index = Math.abs(s.hashCode() % ARR_SIZE);
         LinkedList<HTObject> items = arr[index];
 
@@ -62,6 +70,35 @@ public class SubstringsAnagrams {
             items.add(item);
             arr[index] = items;
         }
+    }
+
+    public static HTObject getFromHT(String s) {
+        if(s == null)
+            return null;
+
+        int index = Math.abs(s.hashCode() % ARR_SIZE);
+        LinkedList<HTObject> items = arr[index];
+
+        if (items == null)
+            return null;
+
+        for (HTObject item : items) {
+            if (item.key.equals(s))
+                return item;
+        }
+        return null;
+
+    }
+
+    public static int getCharacterFrequencyBasedPairs(String s) {
+        int index = Math.abs(s.hashCode() % ARR_SIZE), count = 0;
+        LinkedList<HTObject> items = arr[index];
+
+        for (HTObject item : items)
+            if (item.key.equals(s))
+                count++;
+
+        return (count*(count-1))/2;
     }
 
 
