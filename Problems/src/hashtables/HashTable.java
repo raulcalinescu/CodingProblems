@@ -50,8 +50,8 @@ public class HashTable {
 
             arr[index] = items;
         } else {
-            for(HTObject item : items) {
-                if (item.key.equals(key)) {
+            for(HTObject item : items) {  // you only need this loop when you want to change the value of a string that already
+                if (item.key.equals(key)) {   // exists and you don't want to add another copy of that string.
                     item.value = value;
                     return;
                 }
@@ -61,6 +61,8 @@ public class HashTable {
             item.value = value;
 
             items.add(item);
+
+            arr[index] = items;
         }
     }
 
