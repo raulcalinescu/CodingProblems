@@ -21,44 +21,77 @@ anagrammatic pairs of substrings in s.
 * */
 
 public class SubstringsAnagrams {
-
-    public static int index_value = 0, pairs = 0;
+/*
     public static final int ARR_SIZE = 100;
     public static LinkedList<HTObject>[] arr = new LinkedList[ARR_SIZE];
     public static Set<String> uniqueChars = new HashSet();
-    public static StringBuilder s1_b = new StringBuilder(), s2_b = new StringBuilder();
+
 
     public static class HTObject {
         public String key;
         public Integer value;
     }
-
+*/
     // Complete the sherlockAndAnagrams function below.
     static int sherlockAndAnagrams(String s) {
-        for (char c : s.toCharArray()) {
+        boolean hitBreak = false;
+        int pairs = 0;
+        StringBuilder s1_b = new StringBuilder(), s2_b = new StringBuilder();
+    /*    for (char c : s.toCharArray()) {
             addToHT(String.valueOf(c),index_value);
             index_value++;
         }
 
-        for (char c : s.toCharArray()) {
+        for (char c : s.toCharArray()) {                            // approach with the HT
             if (!uniqueChars.contains(String.valueOf(c))) {
                 pairs += getCharacterFrequencyBasedPairs(String.valueOf(c));
                 uniqueChars.add(String.valueOf(c));
             }
-        }
+        } */
 
-        char[] sChar = new char[s.length()];
+        char[] sChar = s.toCharArray();
 
-        for (int index = 0; index < sChar.length - 1; index++)
+        for (int index = 0; index < sChar.length - 1; index++) {
             for (int i = index; i < sChar.length - 1; i++) {
                 s1_b.append(sChar[i]);
 
-              for (int j = i + 1; j < sChar.length; j++)
+                if (s1_b.length() < 2) {
+                    for (int k = i + 1; k < sChar.length; k++) {
+                        s2_b.append(sChar[k]);
 
-                if(anagrams(s1_b.toString(),s2_b.toString()))
-                    pairs++;
+                        if (anagrams(s1_b.toString(), s2_b.toString()))
+                            pairs++;
+
+                        s2_b = new StringBuilder();
+                    }
+                } else {
+                    for (int k = index + 1; k < sChar.length; k++) {
+                            s2_b.append(sChar[k]);
+
+                        for (int j = k + 1; (s2_b.length() < s1_b.length()); j++) {
+                            if (j <= sChar.length - 1) {
+                                s2_b.append(sChar[j]);
+                            } else {
+                                hitBreak = true;
+                                break;
+                            }
+                        }
+
+                        if (hitBreak){
+                            hitBreak = false;
+                            s2_b = new StringBuilder();
+                            break;
+                        }
+
+                        if (anagrams(s1_b.toString(), s2_b.toString()))
+                            pairs++;
+
+                        s2_b = new StringBuilder();
+                    }
+                }
             }
-
+            s1_b = new StringBuilder();
+        }
         return pairs;
     }
 
@@ -76,11 +109,13 @@ public class SubstringsAnagrams {
             }
             if (!iFound)
                 return false;
+            iFound = false;
         }
 
         return true;
     }
 
+    /*
     public static void addToHT(String s, Integer index_value) {
         int index = Math.abs(s.hashCode() % ARR_SIZE);
         LinkedList<HTObject> items = arr[index];
@@ -132,7 +167,7 @@ public class SubstringsAnagrams {
 
         return (count*(count-1))/2;
     }
-
+*/
 
 
     private static final Scanner scanner = new Scanner(System.in);
