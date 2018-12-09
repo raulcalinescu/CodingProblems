@@ -34,9 +34,6 @@ public class SubstringsAnagrams {
 */
     // Complete the sherlockAndAnagrams function below.
     static int sherlockAndAnagrams(String s) {
-        boolean hitBreak = false;
-        int pairs = 0;
-        StringBuilder s1_b = new StringBuilder(), s2_b = new StringBuilder();
     /*    for (char c : s.toCharArray()) {
             addToHT(String.valueOf(c),index_value);
             index_value++;
@@ -48,23 +45,15 @@ public class SubstringsAnagrams {
                 uniqueChars.add(String.valueOf(c));
             }
         } */
-
         char[] sChar = s.toCharArray();
+        boolean hitBreak = false;
+        int pairs = 0;
+        StringBuilder s1_b = new StringBuilder(), s2_b = new StringBuilder();
 
         for (int index = 0; index < sChar.length - 1; index++) {
             for (int i = index; i < sChar.length - 1; i++) {
                 s1_b.append(sChar[i]);
 
-                if (s1_b.length() < 2) {
-                    for (int k = i + 1; k < sChar.length; k++) {
-                        s2_b.append(sChar[k]);
-
-                        if (anagrams(s1_b.toString(), s2_b.toString()))
-                            pairs++;
-
-                        s2_b = new StringBuilder();
-                    }
-                } else {
                     for (int k = index + 1; k < sChar.length; k++) {
                             s2_b.append(sChar[k]);
 
@@ -88,7 +77,6 @@ public class SubstringsAnagrams {
 
                         s2_b = new StringBuilder();
                     }
-                }
             }
             s1_b = new StringBuilder();
         }
@@ -111,7 +99,6 @@ public class SubstringsAnagrams {
                 return false;
             iFound = false;
         }
-
         return true;
     }
 
