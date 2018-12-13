@@ -15,9 +15,10 @@ public class Greedy_2DWeightedMinimum {
         int[] arr = new int[contests.length];
         int sum = 0, diff = 0;
 
-        for (int i = 0; i < contests.length; i++) {
+        for (int i = 0, j= 0; i < contests.length; i++) {
             if (contests[i][1] == 1) {
-                arr[i] = contests[i][0];
+                arr[j] = contests[i][0];
+                j++;
             }
             sum += contests[i][0];
         }
