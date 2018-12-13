@@ -16,6 +16,17 @@ import java.util.regex.*;
 Given an array of integers, find and print the minimum absolute difference between any two elements in the array.
 * */
 
+/*
+* GREEDY ALGORITHM DEFINITION:
+*
+* always makes the choice that seems to be the best at that moment. This means that it makes a locally-optimal choice
+* in the hope that this choice will lead to a globally-optimal solution.
+*
+* The Greedy algorithm has only one shot to compute the optimal solution so that it never goes back and reverses the
+* decision.
+*
+* */
+
 public class Greedy_MinAbsDifferenceArray {
 
     // Complete the minimumAbsoluteDifference function below.
