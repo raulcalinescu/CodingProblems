@@ -49,6 +49,14 @@ import java.util.regex.*;
 
 public class BinarySearch_MatchSum_IceCreamParlor {
 
+    public class HTObject {
+        public Integer value;
+        public Integer index;
+
+    }
+    public final int ARR_SIZE = 50;
+    private HTObject[] arr = new HTObject[ARR_SIZE];
+
     // Complete the whatFlavors function below.
     static void whatFlavors(int[] cost, int money) {
 
