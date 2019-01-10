@@ -49,10 +49,42 @@ import java.util.regex.*;
 
 public class BinarySearch_MatchSum_IceCreamParlor {
 
+    public static class HTObject {
+        public Integer position;
+        public Integer value;
+    }
+
+    public static final int ARR_SIZE = 50;
+    private static LinkedList<HTObject>[] arr = new LinkedList[ARR_SIZE];
+
     // Complete the whatFlavors function below.
     static void whatFlavors(int[] cost, int money) {
+        for (int i = 0; i < cost.length; i++) {
+            put(i,cost[i]);
+        }
 
+    }
 
+    public static void put(Integer position, Integer value) {
+        int index = Math.abs(value.hashCode() % ARR_SIZE);
+        LinkedList<HTObject> items = arr[index];
+
+        if(items == null) {
+            items = new LinkedList<HTObject>();
+
+            HTObject item = new HTObject();
+            item.position = position;
+            item.value = value;
+            items.add(item);
+        } else {
+            HTObject item = new HTObject();
+            item.position = position;
+            item.value = value;
+
+            items.add(item);
+
+            arr[index] = items;
+        }
     }
 
     private static final Scanner scanner = new Scanner(System.in);
