@@ -59,10 +59,41 @@ public class BinarySearch_MatchSum_IceCreamParlor {
 
     // Complete the whatFlavors function below.
     static void whatFlavors(int[] cost, int money) {
+        int diff = 0;
         for (int i = 0; i < cost.length; i++) {
             put(i,cost[i]);
         }
 
+        Arrays.sort(cost);
+
+        for (int i = 0; i < cost.length; i++) {
+            if (money < cost[i]) {}
+            else {
+                diff = get(money - cost[i]);
+                if(diff == -1) {}
+                else {
+                    System.out.println(i + " " + diff);
+                }
+            }
+        }
+
+    }
+
+    public static int get (Integer flavor) {
+        if (flavor <= 0)
+            return -1;
+        int index = Math.abs(flavor.hashCode() % ARR_SIZE);
+        LinkedList<HTObject> items = arr[index];
+
+        if (items == null)
+            return -1;
+
+        for (HTObject item : items) {
+            if (item.value.equals(flavor))
+                return item.position;
+        }
+
+        return -1;
     }
 
     public static void put(Integer position, Integer value) {
