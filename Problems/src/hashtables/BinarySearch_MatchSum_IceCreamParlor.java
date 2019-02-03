@@ -53,15 +53,13 @@ public class BinarySearch_MatchSum_IceCreamParlor {
         public Integer position;
         public Integer value;
     }
-
-    public static final int ARR_SIZE = 50;
-    private static LinkedList<HTObject>[] arr = new LinkedList[ARR_SIZE];
-
+    private static LinkedList<HTObject>[] arr = new LinkedList[100];
     // Complete the whatFlavors function below.
     static void whatFlavors(int[] cost, int money) {
+
         int diff = 0;
         for (int i = 0; i < cost.length; i++) {
-            put(i,cost[i]);
+            put(i,cost[i], cost);
         }
 
         Arrays.sort(cost);
@@ -69,7 +67,7 @@ public class BinarySearch_MatchSum_IceCreamParlor {
         for (int i = 0; i < cost.length; i++) {
             if (money < cost[i]) {}
             else {
-                diff = get(money - cost[i]);
+                diff = get(money - cost[i], cost);
                 if(diff == -1) {}
                 else {
                     System.out.println(i + " " + diff);
@@ -79,10 +77,10 @@ public class BinarySearch_MatchSum_IceCreamParlor {
 
     }
 
-    public static int get (Integer flavor) {
+    public static int get (Integer flavor, int[] cost) {
         if (flavor <= 0)
             return -1;
-        int index = Math.abs(flavor.hashCode() % ARR_SIZE);
+        int index = Math.abs(flavor.hashCode() % cost.length);
         LinkedList<HTObject> items = arr[index];
 
         if (items == null)
@@ -96,8 +94,8 @@ public class BinarySearch_MatchSum_IceCreamParlor {
         return -1;
     }
 
-    public static void put(Integer position, Integer value) {
-        int index = Math.abs(value.hashCode() % ARR_SIZE);
+    public static void put(Integer position, Integer value, int[] cost) {
+        int index = Math.abs(value.hashCode() % cost.length);
         LinkedList<HTObject> items = arr[index];
 
         if(items == null) {
