@@ -59,7 +59,7 @@ public class BinarySearch_MatchSum_IceCreamParlor {
 
         int diff = 0;
         for (int i = 0; i < cost.length; i++) {
-            put(i,cost[i], cost);
+            put(i, cost[i], cost);
         }
 
         Arrays.sort(cost);
