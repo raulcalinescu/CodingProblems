@@ -57,20 +57,25 @@ public class BinarySearch_MatchSum_IceCreamParlor {
     // Complete the whatFlavors function below.
     static void whatFlavors(int[] cost, int money) {
 
-        int diff = 0;
+        int diff1 = 0, diff2 = 0;
         for (int i = 0; i < cost.length; i++) {
-            put(i, cost[i], cost);
+            put(i+1, cost[i], cost);
         }
 
         Arrays.sort(cost);
 
         for (int i = 0; i < cost.length; i++) {
-            if (money < cost[i]) {}
+            if (money < cost[i]) continue;
             else {
-                diff = get(money - cost[i], cost);
-                if(diff == -1) {}
+                diff1 = get(cost[i], cost);
+                diff2 = get(money - cost[i], cost);
+                if(diff1 == -1 || diff2 == -1) continue;
                 else {
-                    System.out.println(i + " " + diff);
+                    if (diff2 > diff1)
+                        System.out.println(diff1 + " " + diff2);
+                    else
+                        System.out.println(diff2 + " " + diff1);
+                    break;
                 }
             }
         }
@@ -105,6 +110,7 @@ public class BinarySearch_MatchSum_IceCreamParlor {
             item.position = position;
             item.value = value;
             items.add(item);
+            arr[index] = items;
         } else {
             HTObject item = new HTObject();
             item.position = position;
@@ -119,29 +125,10 @@ public class BinarySearch_MatchSum_IceCreamParlor {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int t = scanner.nextInt();
-        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-        for (int tItr = 0; tItr < t; tItr++) {
-            int money = scanner.nextInt();
-            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-            int n = scanner.nextInt();
-            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-            int[] cost = new int[n];
-
-            String[] costItems = scanner.nextLine().split(" ");
-            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-            for (int i = 0; i < n; i++) {
-                int costItem = Integer.parseInt(costItems[i]);
-                cost[i] = costItem;
-            }
-
+            int[] cost = new int[] {6,1,2,8,3,25,4,87};
+            int money = 8;
             whatFlavors(cost, money);
         }
 
-        scanner.close();
-    }
+
 }
