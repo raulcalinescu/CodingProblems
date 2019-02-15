@@ -86,7 +86,7 @@ public class BinarySearch_MatchSum_IceCreamParlor {
         if (low > high) {
             return false;
         }
-        int mid = low + ((low + high) / 2);
+        int mid = low + ((high - low) / 2);
 
         if (number == arr[mid]) {
             return true;
@@ -97,11 +97,11 @@ public class BinarySearch_MatchSum_IceCreamParlor {
         }
     }
 
-    public static boolean binarySearchRecursive (int number, int[] arr) {
+    public static boolean binarySearchIterative (int number, int[] arr) {
         int low = 0, high = arr.length - 1;
 
-        while (low < high) {
-            int mid = low + ((low + high) / 2);
+        while (low <= high) {
+            int mid = low + ((high - low) / 2);
 
             if (number == arr[mid]) {
                 return true;
