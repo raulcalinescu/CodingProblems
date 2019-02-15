@@ -82,6 +82,21 @@ public class BinarySearch_MatchSum_IceCreamParlor {
 
     }
 
+    public static boolean binarySearchRecursive (int number, int low, int high, int[] arr) {
+        if (low > high) {
+            return false;
+        }
+        int mid = low + ((low + high) / 2);
+
+        if (number == arr[mid]) {
+            return true;
+        } else if (number > arr[mid]) {
+            return binarySearchRecursive(number, mid + 1, high, arr);
+        } else {
+            return binarySearchRecursive(number, low, mid - 1, arr);
+        }
+    }
+
     public static int get (Integer flavor, int[] cost) {
         if (flavor <= 0)
             return -1;
