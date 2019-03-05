@@ -18,19 +18,17 @@ public class Greedy_Florist_minPriceFirst {
         int tempCount = totalCount;         // Count will decrease only when a new round; to indicate last round
         Arrays.sort(c);
 
-        if (c.length % k == 0) {
-            for (int i = c.length - 1, j = 0; i >= 0 && j < c.length; i--, j++) {  // traverse the array backwards to get the
-                if (count < totalCount && tempCount >= 0) {
+            for (int i = c.length - 1; i >= 0; i--) {  // traverse the array backwards to get the
+                if (count < totalCount && tempCount >= 0 && countBuyer < k) {
                     minSum = minSum + c[i] * (count + 1);                         // higher costs first for 0 multiplyer
                     countBuyer ++;
                 } else {
                     tempCount--;
-                    countBuyer = 0;
+                    countBuyer = 1;
                     count++;
                     minSum = minSum + c[i] * (count + 1);
                 }
             }
-        }
 
         return minSum;
     }
