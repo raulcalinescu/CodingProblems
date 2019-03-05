@@ -12,19 +12,21 @@ public class Greedy_Florist_minPriceFirst {
 
     // Complete the getMinimumCost function below.
     static int getMinimumCost(int k, int[] c) {
-        int minSum = 0, count = 0;
-        int totalCount = c.length / k;  // keep track of rounds for each buyer
-        int tempCount = totalCount;      // Count will decrease to indicate last round
+        int minSum = 0;
+        int count = 0, countBuyer = 0;                      // which round we are at for buyers
+        int totalCount = c.length / k;      // keep track of rounds for each buyer
+        int tempCount = totalCount;         // Count will decrease only when a new round; to indicate last round
         Arrays.sort(c);
 
         if (c.length % k == 0) {
             for (int i = c.length - 1, j = 0; i >= 0 && j < c.length; i--, j++) {  // traverse the array backwards to get the
                 if (count < totalCount && tempCount >= 0) {
                     minSum = minSum + c[i] * (count + 1);                         // higher costs first for 0 multiplyer
-                    count ++;
+                    countBuyer ++;
                 } else {
                     tempCount--;
-                    count = 0;
+                    countBuyer = 0;
+                    count++;
                     minSum = minSum + c[i] * (count + 1);
                 }
             }
