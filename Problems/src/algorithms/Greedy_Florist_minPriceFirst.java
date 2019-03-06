@@ -25,8 +25,13 @@ public class Greedy_Florist_minPriceFirst {
                 } else {
                     tempCount--;
                     countBuyer = 1;
-                    count++;
-                    minSum = minSum + c[i] * (count + 1);
+
+                    if (count == totalCount) {
+                        minSum = minSum + c[i] * (count + 1);
+                    } else {
+                        count++;
+                        minSum = minSum + c[i] * (count + 1);
+                    }
                 }
             }
 
