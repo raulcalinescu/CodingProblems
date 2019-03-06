@@ -28,7 +28,7 @@ So using only n = ~n won't be enough for this case
 
  */
 
-public class FlippingBits {
+public class DecToBin_FlippingBits {
 
 
         // Complete the flippingBits function below.
@@ -37,10 +37,10 @@ public class FlippingBits {
             int index = 0;
             long sum = 0;
 
-            while(n > 0) {
+            while(n > 0) {      // DEC to BIN raw conversion below
                 binary[index++] = (int)(n%2);
-                n = n/2;
-            }
+                n = n/2;        // save each remainder as a bit in an array
+            }                   // and divide by 2 to get the next 2 base
 
             for(int i = binary.length - 1; i >= 0 ; i--) {
                 sum = sum + (long)(Math.pow(2,i) * flipBinary(binary[i]));
