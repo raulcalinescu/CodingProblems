@@ -65,4 +65,5 @@ public class NodeIsBST {
         System.out.println(bst.checkBST(bst));
     }
 
+
 }
