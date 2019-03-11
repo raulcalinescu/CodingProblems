@@ -49,7 +49,7 @@ public class NodeIsBST {
     }
 
     public static boolean contains(int value) {
-
+        return true;
     }
 
     public static void main(String[] args) {

@@ -30,9 +30,20 @@ class HeightOfTree {
     */
     public static int height(Node root) {
         // Write your code here.
-        int height = 0;
+        int height = 0, count = 0;
 
-        return height;
+        if (root.left == null && root.right == null) {
+            return height;
+        } else {
+            if (count++ > height) {
+                height = count;
+            }
+            if (root.left != null) {
+                return height(root.left);
+            } else {
+                return height(root.right);
+            }
+        }
     }
 
 
