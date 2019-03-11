@@ -28,21 +28,19 @@ class HeightOfTree {
         NodeIsBST left;
         NodeIsBST right;
     */
+    public static int count = 0, height =0;
+
     public static int height(Node root) {
         // Write your code here.
-        int height = 0, count = 0;
 
         if (root.left == null && root.right == null) {
+            count = 0;
             return height;
         } else {
-            if (count++ > height) {
+            if (++count > height) {
                 height = count;
             }
-            if (root.left != null) {
-                return height(root.left);
-            } else {
-                return height(root.right);
-            }
+            return Integer.max(height(root.left),height(root.right));
         }
     }
 
