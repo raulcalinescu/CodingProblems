@@ -33,9 +33,11 @@ class HeightOfTree {
         // Write your code here.
 
         if(root != null) {
-            return 1 + Integer.max(height(root.left), height(root.right));
-        } else
             return -1;
+        } else {
+            return 1 + (height(root.left)>height(root.right)?
+                    height(root.left):height(root.right));
+        }
     }
 
     public static void main(String[] args) {
