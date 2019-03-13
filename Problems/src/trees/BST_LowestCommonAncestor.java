@@ -20,7 +20,7 @@ public class BST_LowestCommonAncestor {
 
     }
 
-    /* performance improvement:
+    /* performance improvementif you select which is bigger:
 
     node* lca_(node* root, int a, int b)
 {

@@ -53,29 +53,11 @@ public class BinarySearch_MatchSum_IceCreamParlor {
         public Integer position;
         public Integer value;
     }
-    private static LinkedList<HTObject>[] arr = new LinkedList[100];
+    private static LinkedList<HTObject>[] arr = new LinkedList[50000];
     // Complete the whatFlavors function below.
 
+
     static void whatFlavors(int[] cost, int money) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-
-        for(int i = 0; i < cost.length; i++){
-            int target = money-cost[i];
-            if(cost[i] < money) {
-                if (map.containsKey(target)) {
-                    System.out.println(map.get(target) + " " + (i + 1));
-                }
-
-            } else {
-                map.put(cost[i], i+1);
-            }
-        }
-    }
-
-
-
-
-    static void whatFlavors2(int[] cost, int money) {
 
         int diff1 = 0, diff2 = 0;
         for (int i = 0; i < cost.length; i++) {
@@ -99,7 +81,7 @@ public class BinarySearch_MatchSum_IceCreamParlor {
                 }
             }
         }
-        arr = new LinkedList[100];
+        arr = new LinkedList[50000];
     }
 
     public static boolean binarySearchRecursive (int number, int low, int high, int[] arr) {
@@ -182,25 +164,11 @@ public class BinarySearch_MatchSum_IceCreamParlor {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-   /* public static void main(String[] args) {
-            int[] cost = new int[] {6,1,2,8,3,25,4,87};
-            int money = 8;
+    public static void main(String[] args) {
+            int[] cost = new int[] {2,2,3,5};
+            int money = 4;
             whatFlavors(cost, money);
         }
-*/
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int t = in.nextInt();
-        for(int a0 = 0; a0 < t; a0++){
-            int money = in.nextInt();
-            int n = in.nextInt();
-            int[] arr = new int[n];
-            for(int arr_i = 0; arr_i < n; arr_i++){
-                arr[arr_i] = in.nextInt();
-            }
-            whatFlavors(arr, money);
-        }
-        in.close();
-    }
+
 
 }
