@@ -55,7 +55,27 @@ public class BinarySearch_MatchSum_IceCreamParlor {
     }
     private static LinkedList<HTObject>[] arr = new LinkedList[100];
     // Complete the whatFlavors function below.
+
     static void whatFlavors(int[] cost, int money) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for(int i = 0; i < cost.length; i++){
+            int target = money-cost[i];
+            if(cost[i] < money) {
+                if (map.containsKey(target)) {
+                    System.out.println(map.get(target) + " " + (i + 1));
+                }
+
+            } else {
+                map.put(cost[i], i+1);
+            }
+        }
+    }
+
+
+
+
+    static void whatFlavors2(int[] cost, int money) {
 
         int diff1 = 0, diff2 = 0;
         for (int i = 0; i < cost.length; i++) {
@@ -79,7 +99,7 @@ public class BinarySearch_MatchSum_IceCreamParlor {
                 }
             }
         }
-
+        arr = new LinkedList[100];
     }
 
     public static boolean binarySearchRecursive (int number, int low, int high, int[] arr) {
@@ -115,6 +135,7 @@ public class BinarySearch_MatchSum_IceCreamParlor {
     }
 
     public static int get (Integer flavor, int[] cost) {
+        int position;
         if (flavor <= 0)
             return -1;
         int index = Math.abs(flavor.hashCode() % cost.length);
@@ -124,8 +145,13 @@ public class BinarySearch_MatchSum_IceCreamParlor {
             return -1;
 
         for (HTObject item : items) {
-            if (item.value.equals(flavor))
-                return item.position;
+            if (item.value.equals(flavor) && item.position != -1) {
+                position = item.position;
+                item.position = -1;
+                items.add(item);
+                arr[index] = items;
+                return position;
+            }
         }
 
         return -1;
@@ -156,11 +182,25 @@ public class BinarySearch_MatchSum_IceCreamParlor {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
             int[] cost = new int[] {6,1,2,8,3,25,4,87};
             int money = 8;
             whatFlavors(cost, money);
         }
-
+*/
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        for(int a0 = 0; a0 < t; a0++){
+            int money = in.nextInt();
+            int n = in.nextInt();
+            int[] arr = new int[n];
+            for(int arr_i = 0; arr_i < n; arr_i++){
+                arr[arr_i] = in.nextInt();
+            }
+            whatFlavors(arr, money);
+        }
+        in.close();
+    }
 
 }
