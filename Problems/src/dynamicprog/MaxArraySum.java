@@ -1,4 +1,4 @@
-/*package dynamicprog;
+package dynamicprog;
 
 import java.io.*;
 import java.math.*;
@@ -11,11 +11,11 @@ import java.util.regex.*;
 
 
 // Memoization and dynamic programming
-
+/*
 Memoization - > store values at each layer of recursion instead of computing from scratch each time
   - linear run time instead of exponential (great improvement)
 
-
+*/
 
 
 
@@ -64,5 +64,5 @@ public class MaxArraySum {
         }
     }
 
-}
-*/
+
+
