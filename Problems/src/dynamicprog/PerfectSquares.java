@@ -1,24 +1,30 @@
 package dynamicprog;
 
 import sun.misc.Perf;
-import java.util.Scanner;
+import java.util.*;
 
 // print minimum number of perfect squares that add up to a given number
 
 public class PerfectSquares {
-    static int count = 0;
 
     static int perfectSquare(int n) {
-        int[] c = new int[n];
-        c[0] = 1;
-        c[1] = 2;
-        c[3] = 3;
+        if (n <= 0) {
+            return 0;
+        }
+        List<Integer> cntPerfectSquare = new ArrayList<>();
+        cntPerfectSquare.add(0);
 
-        for (int i = 4; i <= n; i++) {
+        while (cntPerfectSquare.size() <= n) {
+            int size = cntPerfectSquare.size();
+            int cntSquares = Integer.MAX_VALUE;
 
+            for (int i = 1; i*i <= size; i++) {
+              cntSquares = Math.min(cntSquares, cntPerfectSquare.get(size - i*i) + 1);
+            }
+            cntPerfectSquare.add(cntSquares);
         }
 
-
+       return cntPerfectSquare.get(n);
     }
 
 
