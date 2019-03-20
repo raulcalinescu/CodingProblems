@@ -17,7 +17,7 @@ public class LinkedList {
         }
     }
 
-        public static LinkedList insert(LinkedList list, int data) {
+        public LinkedList insert(LinkedList list, int data) {
 
             if (list.head == null) {
                 Node new_Node = new Node(data);
