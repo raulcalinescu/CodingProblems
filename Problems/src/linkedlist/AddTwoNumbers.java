@@ -11,13 +11,13 @@ public class AddTwoNumbers {
         Stack<Integer> STACK2 = new Stack<Integer>();
         Stack<Integer> Sum = new Stack<Integer>();
 
-        while (l1.head.next.next != null) {
+        while (l1.head != null) {
             STACK1.push(l1.head.data);
             l1.head = l1.head.next;
             count1++;
         }
 
-        while (l2.head.next.next != null) {
+        while (l2.head != null) {
             STACK2.push(l2.head.data);
             l2.head = l2.head.next;
             count2++;
@@ -55,7 +55,7 @@ public class AddTwoNumbers {
 
 
         LinkedList l1 = new LinkedList();
-        l1.head = null;
+        //l1.head = null;
         int n = sc.nextInt();
 
         for (int i = 0; i < n; i++) {
@@ -63,10 +63,10 @@ public class AddTwoNumbers {
         }
 
         LinkedList l2 = new LinkedList();
-        l2.head = null;
+        //l2.head = null;
 
         for (int i = 0; i < n; i++) {
-            l1.insert(l2,scanLL.nextInt());
+            l2.insert(l2,scanLL.nextInt());
         }
 
         System.out.println(sumOfTwo(l1,l2));
