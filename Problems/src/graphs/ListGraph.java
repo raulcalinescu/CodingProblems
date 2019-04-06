@@ -27,10 +27,10 @@ public class ListGraph {
     //function to print Adj List representation of Graph
 
     static void printGraph (ListGraph graph) {
-        for (int v = 0; v < graph.V; v ++) {
+        for (int v = 0; v < graph.V; v ++) {            // traverse each elem in the array of linked list heads addresses
             System.out.println ("Adjacency List of Vertex " + v);
             System.out.println ("Head");
-            for (Integer listNode: graph.adjListArr[v]) {
+            for (Integer listNode: graph.adjListArr[v]) {   // print each node in the linked list for the associated vertex
                 System.out.print (" -> " + listNode);
             }
             System.out.println("\n");
@@ -39,6 +39,7 @@ public class ListGraph {
 
     public static void main (String args[]) {
         Scanner sc = new Scanner (System.in);
+        System.out.println ("How many vertices do you want in your graph?");
         int v = sc.nextInt();
         ListGraph graph = new ListGraph(v);
         System.out.println ("Type 1 if you'd like to add an edge:");
@@ -48,11 +49,9 @@ public class ListGraph {
         while (add == 1) {
             System.out.println ("Source:");
             int src = sc.nextInt();
-            System.out.println("\n");
 
             System.out.println ("Destination:");
             int dst = sc.nextInt();
-            System.out.println("\n");
 
             graph.addEdge(graph,src,dst);
 
