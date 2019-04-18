@@ -34,23 +34,39 @@ for (int i = 0; i < len; i++) {
 }
  */
 
+/*
+1 1 2 2 2 3
+
+
+ */
+
+
 public class removeDuplicates {
 
-    public int removeDupsArray (int[] nums) {
+    public static int removeDupsArray (int[] nums) {
         int length = nums.length;
+        int temp = 0;
 
-        for (int i = 1; i < length; i++) {
-            if (nums[i] == nums[i-1]) {
-                length--;
-                for (int j = i; j < nums.length; j++) {
-                    nums[j] = nums[j+1];
+        for (int i = 1; i < length; i++) {   // traverse array from the second element
+            while (nums[i] == nums[i-1]) {             // to copy it over to first if they are the same
+                length--;                              // reduce size of the renewed array
+
+                for (int j = i; j < nums.length - 1; j++) {     // for each duplicate found, bring the remaining values
+                    nums[j] = nums[j+1];                            //over to the left by one index
                 }
+                if (i == length) break;
             }
         }
 
         return length;
     }
 
-
+    public static void main (String[] args) {
+        int[] arr = new int[] {1,2,2,3,3};
+        System.out.println(removeDupsArray(arr));
+        for (int i = 0; i < arr.length; i ++) {
+            System.out.print(" " + arr[i]);
+        }
+    }
 
 }
