@@ -1,10 +1,10 @@
 package graphs;
 
-import sun.security.provider.certpath.AdjacencyList;
+//import sun.security.provider.certpath.AdjacencyList;
 
 import java.util.*;
 
-public class ListGraph {
+class ListGraph {
 
     static int V;
     static LinkedList <Integer> adjListArr[];
@@ -37,7 +37,7 @@ public class ListGraph {
         }
     }
 
-    public static void main (String args[]) {
+    public static void main (String[] args) {
         Scanner sc = new Scanner (System.in);
         System.out.println ("How many vertices do you want in your graph?");
         int v = sc.nextInt();

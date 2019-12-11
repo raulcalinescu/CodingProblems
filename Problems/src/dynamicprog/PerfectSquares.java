@@ -1,6 +1,4 @@
 package dynamicprog;
-
-import sun.misc.Perf;
 import java.util.*;
 
 // print minimum number of perfect squares that add up to a given number
