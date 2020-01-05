@@ -1,4 +1,4 @@
-package random;
+package strings;
 
 /*
 Given a valid (IPv4) IP address, return a defanged version of that IP address.
