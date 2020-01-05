@@ -23,9 +23,10 @@ public class DefangIPAddress {
         StringBuilder str = new StringBuilder();     // always use StringBuilder when dealing with string concatenations
         char[] c = address.toCharArray();
 
-        for(int i = 0; i < c.length; i++) {
-            if(c[i] == '.') {
-                str.append("[.]");
+        for(int i = 0; i < c.length; i++) {   // for(char c: address.toCharArray())         < -- uses less lines
+            if(c[i] == '.') {             // if(String.valueOf(c).equals(".")) sb.append("[.]");
+                                            // else sb.append(String.valueOf(c));
+                str.append("[.]");          //  } return sb.toString();
             } else {
                 str.append(c[i]);
             }
