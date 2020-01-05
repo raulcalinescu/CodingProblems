@@ -20,15 +20,17 @@ public class DefangIPAddress {
          if (address == null)
              return null;
 
-         if (address.length() == 1)
-             return address;
-
         StringBuilder str = new StringBuilder();     // always use StringBuilder when dealing with string concatenations
         char[] c = address.toCharArray();
-        for(int i = 0; i < c.length; i++) {
 
+        for(int i = 0; i < c.length; i++) {
+            if(c[i] == '.') {
+                str.append("[.]");
+            } else {
+                str.append(c[i]);
+            }
         }
-        return null;
+        return str.toString();
     }
 
     public static void main(String[] args) {
