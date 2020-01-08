@@ -1,6 +1,7 @@
 package Easy.arithmetic_algorithms;
 
-/*
+/* >>>>>> UNFINISHED  <<<<
+
 Count the number of prime numbers less than a non-negative number, n.
 
  n = 6;  3 primes
@@ -31,18 +32,18 @@ p = 2
 
 public class CountPrimes {
 
-    // This follows Sieve's method yet still get time limit exceeded at n = 500k
+    // ....still get time limit exceeded at n = 500k
     public static int countPrimes(int n) {
         int primes = 0, a[] = new int[n+1];
-        for (int i = 2; i < n; i++) {
-                if(a[i] == 0) {
-                    primes++;
-                    int p = i;
-                    while (p < n) {
-                        if(p % i == 0) {    // fill up all the numbers divisible with the prime number found
-                            a[p] = p;
-                        }
-                        p++;
+        for (int p = 2; p * p < n; p++) {
+                if(a[p] == 0) {
+                    //primes++;
+                    int i = p * p;
+                    while (i < n) {
+                                           // fill up all the numbers divisible with the prime number found
+                            a[i] = i;
+                            primes++;
+                        i = i + p;
                     }
                 }
         }
