@@ -1,5 +1,9 @@
 package linkedlist;
 
+/**
+ * Definition for singly-linked list.
+ * */
+
 public class Node {
     int data;
     Node next;
