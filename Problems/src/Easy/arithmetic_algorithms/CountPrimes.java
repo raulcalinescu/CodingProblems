@@ -30,20 +30,21 @@ p = 2
 
 
 public class CountPrimes {
+
+    // This follows Sieve's method yet still get time limit exceeded at n = 500k
     public static int countPrimes(int n) {
-        int primes = 0, a[] = new int[n];
+        int primes = 0, a[] = new int[n+1];
         for (int i = 2; i < n; i++) {
                 if(a[i] == 0) {
                     primes++;
-                } else {
                     int p = i;
-                    while(p < n) {
-                        a[p] = p;
-                        p = p + i;
+                    while (p < n) {
+                        if(p % i == 0) {    // fill up all the numbers divisible with the prime number found
+                            a[p] = p;
+                        }
+                        p++;
                     }
                 }
-
-
         }
         return primes;
     }
@@ -77,6 +78,6 @@ public class CountPrimes {
     }
 */
     public static void main(String[] args) {
-        System.out.println(countPrimes(6));
+        System.out.println(countPrimes(10));
     }
 }
