@@ -21,11 +21,12 @@ origin where it started. Therefore, we return true.
 
 // successful submission on first try - aprox 10 min to solve :)
 public class TraceRobotToOrigin {
+
     public static boolean judgeCircle(String moves) {
         char[] c = moves.toCharArray();
         int vertical = 0, horizontal = 0;
 
-        for(Character ch : c) {
+        for(Character ch : c) {   // you can use char c : moves.toCharArray to spare the char[] c array.
             switch(ch) {
                 case 'D': {
                     vertical--;
@@ -45,11 +46,24 @@ public class TraceRobotToOrigin {
                 }
             }
         }
-        if(vertical == 0 && horizontal == 0)
+        if(vertical == 0 && horizontal == 0)   // you can return the condition for less lines
             return true;
         else
             return false;
     }
+
+    /* LeetCode Solution:
+     public boolean judgeCircle(String moves) {
+        int x = 0, y = 0;
+        for (char move: moves.toCharArray()) {
+            if (move == 'U') y--;
+            else if (move == 'D') y++;
+            else if (move == 'L') x--;
+            else if (move == 'R') x++;
+        }
+        return x == 0 && y == 0;
+    }
+     */
 
     public static void main(String[] args) {
         String s = new String("DDRRUULL");
