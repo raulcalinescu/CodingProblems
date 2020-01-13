@@ -14,6 +14,14 @@ You have to visit the points in the same order as they appear in the array.
 
 public class minPointsTraversalTime {
 
+    public static int minTimeToVisitAllPoints(int[][] points) {
+        int min_time = 0;
+        for(int i = 0; i < points.length - 1; i++) {
+            min_time += Math.max(Math.abs(points[i+1][0] - points[i][0]),      // the min time is the max of coordinates difference
+                    Math.abs(points[i+1][1] - points[i][1]));
+        }
+        return min_time;
+    }
 
 
 
@@ -38,8 +46,8 @@ public class minPointsTraversalTime {
 
     public static void main(String[] args) {
         int[][] mat3 = {{1,1},{3,4},{-1,0}};
-        int[][] mat2 = {{3,4},{-1,0}};
-        System.out.println(minUnitsToVisitAllPoints(mat2));
+        int[][] mat2 = {{0,1},{3,4}};
+        System.out.println(minTimeToVisitAllPoints(mat3));
 
     }
 }
