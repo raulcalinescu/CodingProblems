@@ -13,19 +13,29 @@ You have to visit the points in the same order as they appear in the array.
  */
 
 public class minPointsTraversalTime {
-    public int minTimeToVisitAllPoints(int[][] points) {
-        int time = 0;
+    public static int minTimeToVisitAllPoints(int[][] points) {
+        if(points.length == 1 || points.length == 0)
+            return 0;
+
+        if(points.length == 2)
+            return (int) Math.sqrt((Math.pow(points[1][0] - points[0][0],2) +
+                    Math.pow(points[1][1] - points[0][1],2)));
+
+        int min_time = 0, x1 = 0, x2 =0, y1=0, y2=0;
         for(int i = 0; i < points.length; i++) {
             for(int j = 0; j < points.length; j++) {
-                points[i][j]
+                 points[i][j];
+
+                 break;
             }
         }
-        return time;
+        return min_time;
     }
 
     public static void main(String[] args) {
-        int[][] mat = {{1,1},{3,4},{-1,0}};
-
+        int[][] mat3 = {{1,1},{3,4},{-1,0}};
+        int[][] mat2 = {{1,1},{3,4}};
+        System.out.println(minTimeToVisitAllPoints(mat2));
 
     }
 }
