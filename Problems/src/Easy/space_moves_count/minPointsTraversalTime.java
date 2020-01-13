@@ -13,7 +13,14 @@ You have to visit the points in the same order as they appear in the array.
  */
 
 public class minPointsTraversalTime {
-    public static int minTimeToVisitAllPoints(int[][] points) {
+
+
+
+
+    //this solution works only when actual axis units are needed not time in seconds equivalence
+
+
+    public static int minUnitsToVisitAllPoints(int[][] points) {
         if(points.length == 1 || points.length == 0)   //length of a 2D array is equal to the number of rows (i)
             return 0;
 
@@ -31,8 +38,8 @@ public class minPointsTraversalTime {
 
     public static void main(String[] args) {
         int[][] mat3 = {{1,1},{3,4},{-1,0}};
-        int[][] mat2 = {{1,1},{3,4}};
-        System.out.println(minTimeToVisitAllPoints(mat3));
+        int[][] mat2 = {{3,4},{-1,0}};
+        System.out.println(minUnitsToVisitAllPoints(mat2));
 
     }
 }
