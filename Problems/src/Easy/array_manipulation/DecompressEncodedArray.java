@@ -16,15 +16,16 @@ int[] array1 = {1, 2, 3};
 
 public class DecompressEncodedArray {
     public static int[] decompressRLElist(int[] nums) {
-        int[] temp = new int[]{};
-	    if(nums.length == 2) {
-		    while(nums[0] > 0) {
-			
-		    }
-	    }
+        int[] temp, sum;
+
 	    for(int i = 0; i < nums.length; i+=2) {
+	        int new_length = nums[i];
+	        temp = new int[new_length];
+
             while(nums[i] > 0) {
-                
+                for(int j = 0; j < new_length; j++) {
+                    temp[j] = nums[i+1];
+                }
                 nums[i]--;
             }
         }
