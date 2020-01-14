@@ -18,6 +18,7 @@ return [0,1]
 */
 
 public class TwoSum {
+
     public static int[] twoSum(int[] nums, int target) {
         int[] indices = new int[2];   // creates a two element array.
         for(int i = 0; i<nums.length; i++) {
@@ -52,9 +53,21 @@ public class TwoSum {
 
      */
 
+    public static int[] twoSumHash(int[] a, int target) {
+        Map<Integer,Integer> map = new HashMap<>();
+        for(int i = 0; i<a.length; i++) {
+            int complement = target-a[i];
+            if(map.containsKey(complement)) {                    // need to use the key as the array value to be able
+                return new int[] {map.get(complement),i};           // to map.get on that value as it was a key.
+            }
+            map.put(a[i],i);
+        }
+        throw new IllegalArgumentException("No complement found");
+    }
+
     public static void main(String[] args) {
         int[] a = {2,3,1};
-        int[] indices = twoSum(a,3);
+        int[] indices = twoSumHash(a,3);
         for (int i=0; i<indices.length;i++) {
             System.out.print(indices[i] + " ");
         }
