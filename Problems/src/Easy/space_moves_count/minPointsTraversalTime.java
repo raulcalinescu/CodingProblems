@@ -23,8 +23,7 @@ public class minPointsTraversalTime {
         return min_time;
     }
 
-
-
+    
     //this solution works only when actual axis units are needed not time in seconds equivalence
 
 
