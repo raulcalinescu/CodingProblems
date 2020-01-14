@@ -19,10 +19,10 @@ int[] array1 = {1, 2, 3};
         System.arraycopy(array2, 0, result, aLen, bLen);
 
  */
-
+// solution went from first try with 37 MB less than 100% of java submissions, and 3ms faster than 74%
 public class DecompressEncodedArray {
     public static int[] decompressRLElist(int[] nums) {
-        int[] temp, sum = new int[nums[0]], result = new int[0];
+        int[] temp, sum = new int[]{}, result = new int[0];
         int prev_length = 0;
 
 	    for(int i = 0; i < nums.length; i+=2) {
