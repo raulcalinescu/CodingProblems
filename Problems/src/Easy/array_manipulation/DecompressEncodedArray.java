@@ -38,7 +38,7 @@ public class DecompressEncodedArray {
 
             int sum_length = sum.length + temp_length;
             result = new int[sum_length];                                   // keep a new array to copy the sum of the past
-            System.arraycopy(sum,0,result,0,sum.length);     // arrays and the newly contructed after each
+            System.arraycopy(sum,0,result,0,sum.length);     // arrays and the newly constructed after each
             System.arraycopy(temp,0,result, sum.length, temp.length);   // frequency iteration
             sum = result;
 
