@@ -5,7 +5,7 @@ Array, Linked List, Binary Tree, Binary Search Tree, Red-Black Tree, Heap, Hash 
 Trie Graph (both directed and undirected)
 
 Algorithms:
-Sorting, Bubble Sort, Merge Sort, Quick Sort, Radix/Bucket Sort, Traversals (On multiple data structures),
+Sorting, Bubble Sort, @Merge Sort, Quick Sort, Radix/Bucket Sort, Traversals (On multiple data structures),
 Depth First Search, Breadth First Search
 
 Object Oriented Design:
