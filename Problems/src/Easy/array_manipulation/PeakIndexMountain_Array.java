@@ -18,7 +18,7 @@ Given an array that is definitely a mountain, return any i such that A[0] < A[1]
 
  */
 
-// took 5 min to solve.
+// took 5 min to solve and submit.
 
 public class PeakIndexMountain_Array {
 
