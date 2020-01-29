@@ -1,4 +1,4 @@
-package dynamicprog;
+package Dynamic_Programming;
 import java.util.*;
 
 // print minimum number of perfect squares that add up to a given number
