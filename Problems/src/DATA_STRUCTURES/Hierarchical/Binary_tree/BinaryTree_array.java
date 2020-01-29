@@ -1,4 +1,4 @@
-package DATA_STRUCTURES.Binary_tree;
+package DATA_STRUCTURES.Hierarchical.Binary_tree;
 
 /*
 Binary Tree Data Structure
@@ -23,7 +23,7 @@ public class BinaryTree_array {
         str[root] = value;
     }
 
-    public void setLeft(String value, int root) {
+    public void setLeft(String value, int root) {   // for elements from 1 to n use left=2*p and right=2*p+1
         int leftIndex = root * 2 + 1;
 
         if(str[root] == null) {

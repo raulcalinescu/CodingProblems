@@ -1,4 +1,4 @@
-package DATA_STRUCTURES.Binary_tree;
+package DATA_STRUCTURES.Hierarchical.Binary_tree;
 
 public class TreeNode {
     int data;
