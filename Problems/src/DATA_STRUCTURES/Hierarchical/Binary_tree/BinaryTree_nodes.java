@@ -33,8 +33,17 @@ public class BinaryTree_nodes {
         root = null;
     }
 
-    public void printBreathFirstTraversal(){   // level order traversal
+    void printBreathFirstTraversal() {   // level order traversal
+        int h = height(root);
+    }
 
+    int height(TreeNode root) {     // height of a tree is the number of nodes along the longest path from root to farthest leaf
+        if(root == null) {
+            return 0;
+        } else {
+            int left_height = height(root.leftChild);       // get height of each subtree
+            int right_height = height(root.rightChild);
+        }
     }
 
     public static void main(String[] args) {
