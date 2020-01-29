@@ -44,7 +44,7 @@ public class BinaryTree_nodes {
             int left_height = height(root.leftChild);       // get height of each subtree
             int right_height = height(root.rightChild);
 
-            if(left_height > right_height) {
+            if(left_height > right_height) {        // use the larger one
                 return(left_height + 1);
             } else {
                 return(right_height + 1);
