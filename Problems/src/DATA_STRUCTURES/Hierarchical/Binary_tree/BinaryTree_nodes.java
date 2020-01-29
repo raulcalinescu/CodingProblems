@@ -19,9 +19,6 @@ Breadth First or Level Order Traversal : 1 2 3 4 5
 
  */
 
-import com.sun.source.tree.BinaryTree;
-import com.sun.source.tree.Tree;
-
 public class BinaryTree_nodes {
     TreeNode root;
 
@@ -35,6 +32,9 @@ public class BinaryTree_nodes {
 
     void printBreathFirstTraversal() {   // level order traversal
         int h = height(root);
+        for(int i=1; i<=h; i++) {
+            traverseBreathFirst(root,i);
+        }
     }
 
     int height(TreeNode root) {     // height of a tree is the number of nodes along the longest path from root to farthest leaf
@@ -53,16 +53,28 @@ public class BinaryTree_nodes {
         }
     }
 
+    void traverseBreathFirst(TreeNode root, int height) {
+        if (root == null) {
+            return;
+        }
+        if (height == 1) {
+            System.out.print(" " + root.data);
+        } else if (height >= 2) {
+            traverseBreathFirst(root.leftChild, height - 1);
+            traverseBreathFirst(root.rightChild, height - 1);
+        }
+    }
+
+
     public static void main(String[] args) {
         BinaryTree_nodes BT = new BinaryTree_nodes();
         BT.root = new TreeNode(20);
-        BT.root.rightChild = new TreeNode(8);
-        BT.root.leftChild = new TreeNode(12);
+        BT.root.leftChild = new TreeNode(8);
+        BT.root.rightChild = new TreeNode(12);
         BT.root.leftChild.leftChild = new TreeNode(4);
         BT.root.leftChild.rightChild = new TreeNode(4);
         BT.root.rightChild.leftChild = new TreeNode(6);
         BT.root.rightChild.rightChild = new TreeNode(6);
-
-
+        BT.printBreathFirstTraversal();
     }
 }
