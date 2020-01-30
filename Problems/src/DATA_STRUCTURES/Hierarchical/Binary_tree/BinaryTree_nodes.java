@@ -41,8 +41,8 @@ public class BinaryTree_nodes {
         if(root == null) {
             return 0;
         } else {
-            int left_height = height(root.leftChild);       // get height of each subtree
-            int right_height = height(root.rightChild);
+            int left_height = height(root.left);       // get height of each subtree
+            int right_height = height(root.right);
 
             if(left_height > right_height) {        // use the larger one
                 return(left_height + 1);
@@ -52,16 +52,16 @@ public class BinaryTree_nodes {
 
         }
     }
-
+        // print nodes at the given level
     void traverseBreathFirst(TreeNode root, int height) {
         if (root == null) {
             return;
         }
         if (height == 1) {
-            System.out.print(" " + root.data);
+            System.out.print(root.val + " ");
         } else if (height >= 2) {
-            traverseBreathFirst(root.leftChild, height - 1);
-            traverseBreathFirst(root.rightChild, height - 1);
+            traverseBreathFirst(root.left, height - 1);
+            traverseBreathFirst(root.right, height - 1);
         }
     }
 
@@ -69,12 +69,12 @@ public class BinaryTree_nodes {
     public static void main(String[] args) {
         BinaryTree_nodes BT = new BinaryTree_nodes();
         BT.root = new TreeNode(20);
-        BT.root.leftChild = new TreeNode(8);
-        BT.root.rightChild = new TreeNode(12);
-        BT.root.leftChild.leftChild = new TreeNode(4);
-        BT.root.leftChild.rightChild = new TreeNode(4);
-        BT.root.rightChild.leftChild = new TreeNode(6);
-        BT.root.rightChild.rightChild = new TreeNode(6);
+        BT.root.left = new TreeNode(8);
+        BT.root.right = new TreeNode(12);
+        BT.root.left.left = new TreeNode(4);
+        BT.root.left.right = new TreeNode(4);
+        BT.root.right.left = new TreeNode(6);
+        BT.root.right.right = new TreeNode(6);
         BT.printBreathFirstTraversal();
     }
 }

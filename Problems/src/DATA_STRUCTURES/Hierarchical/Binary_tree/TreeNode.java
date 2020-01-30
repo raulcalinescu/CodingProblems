@@ -13,12 +13,12 @@ package DATA_STRUCTURES.Hierarchical.Binary_tree;
  */
 
 public class TreeNode {
-    int data;
-    TreeNode leftChild;
-    TreeNode rightChild;
+    int val;
+    TreeNode left;
+    TreeNode right;
 
     public TreeNode(int item) {
-        data = item;
-        leftChild = rightChild = null;
+        val = item;
+        left = right = null;
     }
 }
