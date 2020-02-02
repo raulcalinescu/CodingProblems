@@ -32,14 +32,21 @@ public class BinarySearchTree {
             traverseBreathFirst(root,i);
         }
     }
+    static int sum = 0;
+    static int rangeSumBST(TreeNode node, int L, int R) {
+        depthFirstSearch(node,L,R);
+        return sum;
+    }
 
-    static int rangeSumBST(TreeNode root, int L, int R) {
-        if (root.val < L && root.val > R || root == null)
-            return 0;
-        if(root.left == null && root.right == null)
-            return root.val;
-        else
-            return rangeSumBST(root.left,L,R) + rangeSumBST(root.right,L,R);
+    static void depthFirstSearch(TreeNode node, int L, int R) {
+        if(node!=null) {
+            if(node.val >= L && node.val <= R)
+                sum+=node.val;
+            if(node.val > L)
+                depthFirstSearch(node.left,L,R);
+            if(node.val < R)
+                depthFirstSearch(node.right,L,R);
+        }
     }
 
     void traverseBreathFirst(TreeNode root, int height) {
@@ -77,10 +84,12 @@ public class BinarySearchTree {
         BST.root.right = new TreeNode(15);
         BST.root.left.left = new TreeNode(3);
         BST.root.left.right = new TreeNode(7);
-        //BST.root.right.left = new TreeNode(6);
+        BST.root.right.left = new TreeNode(13);
         BST.root.right.right = new TreeNode(18);
+        BST.root.left.left.left = new TreeNode(1);
+        BST.root.left.right.left = new TreeNode(6);
         BST.printBreathFirstTraversal();
 
-        System.out.print(rangeSumBST(BST.root,7,15));
+        System.out.print(rangeSumBST(BST.root,6,10));
     }
 }
