@@ -15,6 +15,8 @@ between L and R (inclusive).
 The binary search tree is guaranteed to have unique values.
  */
 
+import java.util.Stack;
+
 public class BinarySearchTree {
     TreeNode root;
 
@@ -32,6 +34,24 @@ public class BinarySearchTree {
             traverseBreathFirst(root,i);
         }
     }
+    public int rangeSumBST_iterative(TreeNode root, int L, int R) {   //using stack can act as recursion
+        int ans = 0;
+        Stack<TreeNode> stack = new Stack();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            if (node != null) {
+                if (L <= node.val && node.val <= R)
+                    ans += node.val;
+                if (L < node.val)
+                    stack.push(node.left);
+                if (node.val < R)
+                    stack.push(node.right);
+            }
+        }
+        return ans;
+    }
+
     static int sum = 0;
     static int rangeSumBST(TreeNode node, int L, int R) {
         depthFirstSearch(node,L,R);
