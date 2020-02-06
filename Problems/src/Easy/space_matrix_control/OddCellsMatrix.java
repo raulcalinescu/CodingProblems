@@ -25,6 +25,9 @@ n = 2, m = 2
 [0,0]    ->       [0,1]     ->      [2,2]
 [0,0]             [1,2]             [2,2]
 
+size of a matrix by rows: mat.length
+size of matrix by columns: mat[0].length
+
  */
 
 public class OddCellsMatrix {
@@ -36,12 +39,12 @@ public class OddCellsMatrix {
         //getting the indices for the columns and rows
         for(int i = 0; i < indices.length; i++) {
             //incrementing the whole row by one
-            for(int j = 0; j < n; j++) {
-
+            for(int j = 0; j < m; j++) {
+                mat[indices[i][0]][j]++;
             }
             //incrementing the whole column by one
-            for(int k = 0; k < m; k++) {
-
+            for(int k = 0; k < n; k++) {
+                mat[k][indices[i][1]]++;
             }
         }
         //incrementing the count for odd values within the matrix
@@ -56,6 +59,6 @@ public class OddCellsMatrix {
     public static void main(String[] args) {
         int[][] mat1 = {{0,1},{1,1}};
         int[][] mat2 = {{1,1},{0,0}};
-        System.out.println(oddCells(2,3,mat1));
+        System.out.println(oddCells(2,2,mat2));
     }
 }
