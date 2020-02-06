@@ -1,4 +1,4 @@
-package Easy.space_moves_count;
+package Easy.space_matrix_control;
 
 /*
 On a plane there are n points with integer coordinates points[i] = [xi, yi].

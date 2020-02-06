@@ -1,4 +1,4 @@
-package Easy.space_moves_count;
+package Easy.space_matrix_control;
 
 /*
 There is a robot starting at position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this
