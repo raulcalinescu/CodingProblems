@@ -2,7 +2,8 @@ package Easy.space_matrix_control;
 
 /*
 Given n and m which are the dimensions of a matrix initialized by zeros and given an array indices where
-indices[i] = [ri, ci].
+indices[i] = [ri, ci].  //Notice length of columns is always 2, so you can hardcode with 0 and 1.
+
 For each pair of [ri, ci] you have to increment all cells in row ri and column ci by 1.
 
 Return the number of cells with odd values in the matrix after applying the increment to all indices.
