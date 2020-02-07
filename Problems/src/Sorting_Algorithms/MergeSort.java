@@ -24,15 +24,15 @@ public class MergeSort {
         int L[] = new int[s1];
         int R[] = new int[s2];
 
-        //copy to temporary arrays
+        //copy to temporary DATA_STRUCTURES.arrays
         for(int i=0; i<s1; i++)
             L[i] = a[l+i];
         for(int j=0; j<s2; j++)
             R[j] = a[m+1+j];
 
-        // Merge the temporary arrays into the given one
+        // Merge the temporary DATA_STRUCTURES.arrays into the given one
         int i = 0, j = 0, k = l;
-        while (i < s1 && j < s2) {   // we only have to get in this loop if both arrays have elements left
+        while (i < s1 && j < s2) {   // we only have to get in this loop if both DATA_STRUCTURES.arrays have elements left
             if(L[i] < R[j]) {           // otherwise we can just add the remaining ones in another loop
                 a[k] = L[i];
                 i++; k++;
