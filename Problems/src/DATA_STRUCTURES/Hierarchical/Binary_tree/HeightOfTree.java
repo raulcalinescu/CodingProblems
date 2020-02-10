@@ -5,9 +5,7 @@ package DATA_STRUCTURES.Hierarchical.Binary_tree;
 Function Description
 It must return the height of a binary tree as an integer.
 
-getHeight or height has the following parameter(s):
-
-    root: a reference to the root of a binary tree.
+DEF: The height of a binary tree is the largest number of edges in a path from the root node to a leaf node.
 
 Note -> The Height of binary tree with single node is taken as zero.
 
