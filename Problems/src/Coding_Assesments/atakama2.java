@@ -1,3 +1,5 @@
+package Coding_Assesments;
+
 public class atakama2 {
 
     /*/
@@ -28,19 +30,28 @@ Spaces before and after both the header content and the hashtag(s) should be ign
 
     public static String markdownParser( String markdown ) {
         boolean spaceFound = false;
+        int hashCount=0;
         StringBuilder str = new StringBuilder();
         str.append("<h");
         for (char c : markdown.toCharArray()) {
-            if(c!=' ') continue;
-            if(c == ' ') {
-                spaceFound = true;
+            if(c!=' ' && c=='#') {
+                hashCount++;
                 continue;
             }
-            str.append()
+            if(c == ' ') {
+                spaceFound = true;
+                str.append(hashCount+">");
+                continue;
+            }
+
 
         }
 
         return str.toString();
+    }
+
+    public static void main(String[] args) {
+
     }
 
 
