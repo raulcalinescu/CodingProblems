@@ -35,9 +35,9 @@ array.length == 3
     public static Integer arrayPacking(List<Integer> integers) {
         if (integers.size() == 3) {                // checking for the constraints
             int decimal = 0;
-            for (int i=0; i< integers.size(); i++) {
-                if(integers.indexOf(i) < 256 || integers.indexOf(i) >= 0) {
-                    decimal = decimal + integers.indexOf(i) << 8 * i;
+            for (Integer I : integers) {
+                if(I < 256 || I >= 0) {
+                    decimal = decimal + I << 8 * integers.indexOf(I);
                 } else {
                     throw new IllegalArgumentException();    // The argument is out of bounds
                 }
@@ -54,7 +54,7 @@ array.length == 3
         integers.add(Integer.valueOf(24));
         integers.add(Integer.valueOf(85));
         integers.add(Integer.valueOf(0));
-        System.out.println(integers.indexOf(2));
+        System.out.println(integers.indexOf(85));
         System.out.println(arrayPacking(integers));
     }
 }
