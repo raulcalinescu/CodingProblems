@@ -1,4 +1,4 @@
-package Coding_Assesments;
+package Coding_Assesments.Atakama;
 
 import java.util.List;
 import java.util.Arrays;

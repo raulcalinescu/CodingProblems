@@ -1,4 +1,4 @@
-package Coding_Assesments;
+package Coding_Assesments.Atakama;
 
 import com.sun.net.httpserver.Headers;
 
