@@ -1,5 +1,4 @@
 package EASY.space_matrix_control;
-
 /*
 We are given an array A of N lowercase letter strings, all of the same length.
 Now, we may choose any set of deletion indices, and for each string, we delete all the characters in those indices.
@@ -23,6 +22,10 @@ If we chose D = {}, then a column ["b","a","h"] would not be in non-decreasing s
 
 public class Greedy_DeleteUnsortedColumns {
     public int minDeletionSize(String[] A) {
+        int minDeletedColumns = 0;
+        for(int c=0; c<A[0].length(); ++c)
+            for(int r=0; r<)
+
         return 0;
     }
 
