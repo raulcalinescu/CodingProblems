@@ -21,7 +21,7 @@ After choosing D = {1}, each column ["c","d","g"] and ["a","f","i"] are in non-d
 If we chose D = {}, then a column ["b","a","h"] would not be in non-decreasing sorted order.
  */
 
-public class DeleteUnsortedColumns {
+public class Greedy_DeleteUnsortedColumns {
     public int minDeletionSize(String[] A) {
         return 0;
     }
