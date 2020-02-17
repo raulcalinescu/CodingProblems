@@ -1,4 +1,5 @@
 package HARD.Lists_Manipulation;
+import java.util.*;
 
 /*
 Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
@@ -15,6 +16,8 @@ Output: 1->1->2->3->4->4->5->6
 
  */
 
+import DATA_STRUCTURES.LinkedList.LinkedList;
+
 public class MergeSortedLists {
 
      // Definition for singly-linked list.
@@ -28,7 +31,8 @@ public class MergeSortedLists {
      }
 
     public ListNode mergeKLists(ListNode[] lists) {
-         ListNode result;
+         LinkedList result0 = new LinkedList();
+         ListNode result = new ListNode(1);
         return result;
     }
 
