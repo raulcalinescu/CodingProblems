@@ -15,7 +15,7 @@ Output: [9,4]
 
 
  */
-public class InteresectionOfTwoArrays {
+public class InteresectionOfTwoArrays_HashSet {
 
     public static int[] intersection(int[] nums1, int[] nums2) {
         HashSet<Integer> set1 = new HashSet<Integer>();
