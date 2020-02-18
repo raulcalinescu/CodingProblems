@@ -21,16 +21,20 @@ If we chose D = {}, then a column ["b","a","h"] would not be in non-decreasing s
  */
 
 public class Greedy_DeleteUnsortedColumns {
-    public int minDeletionSize(String[] A) {
+    public static int minDeletionSize(String[] A) {
         int minDeletedColumns = 0;
-        for(int c=0; c<A[0].length(); ++c)
-            for(int r=0; r<)
-
-        return 0;
+        for(int c=0; c < A[0].length(); ++c)
+            for(int r=0; r < A.length - 1; ++r)
+                if(A[r].charAt(c) > A[r+1].charAt(c)) {
+                    minDeletedColumns++;
+                    break;
+                }
+        return minDeletedColumns;
     }
 
     public static void main(String[] args) {
-
+        String[] A = new String[] {"cba","daf","ghi"};
+        System.out.println(minDeletionSize(A));
     }
 
 }
