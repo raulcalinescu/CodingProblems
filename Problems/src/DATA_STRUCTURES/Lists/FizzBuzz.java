@@ -15,7 +15,7 @@ public class FizzBuzz {
 
     public static List<String> fizzBuzz(int n) {
         List<String> list = new ArrayList<>();   // List is an abstract class so have to initialize it as a type of List
-        for(int i=1; i<n; i++) {
+        for(int i=1; i<=n; i++) {
             if(i%15==0) {
                 list.add("FizzBuzz");
                 continue;
