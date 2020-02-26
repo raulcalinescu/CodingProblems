@@ -17,10 +17,22 @@ Output:
  */
 public class PascalTriangle {
     public List<List<Integer>> generate(int numRows) {
-        if (numRows > 2)
         List<List<Integer>> mainList = new ArrayList<List<Integer>>();
+        List<Integer> prevList;
+        for(int i=1; i<=numRows; i++) {
+            List<Integer> rowList = new ArrayList<Integer>();
+             for(int num=1; num<=i; num++) {
+                if(num==1)
+                    rowList.add(1);
+                else if(num==i)
+                    rowList.add(1);
+                else rowList.add();
 
-
+                prevList = rowList;
+            }
+            mainList.add(rowList);
+        }
+        return mainList;
     }
 
     public static void main(String[] args) {
