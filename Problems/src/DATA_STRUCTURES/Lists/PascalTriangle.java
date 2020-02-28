@@ -16,26 +16,27 @@ Output:
 ]
  */
 public class PascalTriangle {
-    public List<List<Integer>> generate(int numRows) {
+    public static List<List<Integer>> generate(int numRows) {
         List<List<Integer>> mainList = new ArrayList<List<Integer>>();
-        List<Integer> prevList;
-        for(int i=1; i<=numRows; i++) {
-            List<Integer> rowList = new ArrayList<Integer>();
-             for(int num=1; num<=i; num++) {
-                if(num==1)
-                    rowList.add(1);
-                else if(num==i)
-                    rowList.add(1);
-                else rowList.add();
+        List<Integer> nums1 = new ArrayList<Integer>();
+        nums1.add(1);
+        mainList.add(nums1);
+        if(numRows == 1)
+            return mainList;
+        List<Integer> nums2 = new ArrayList<Integer>();
+        nums2.add(1);
+        nums2.add(1);
+        mainList.add(nums2);
+        if(numRows == 2)
+            return mainList;
 
-                prevList = rowList;
-            }
-            mainList.add(rowList);
+        for(int i=1; i<=numRows; i++) {
+
         }
         return mainList;
     }
 
     public static void main(String[] args) {
-
+        System.out.println(generate(2));
     }
 }
