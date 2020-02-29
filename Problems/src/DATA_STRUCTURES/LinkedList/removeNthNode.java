@@ -24,6 +24,7 @@ public class removeNthNode {
       ListNode(int x) { val = x; }
     }
     public ListNode removeNthFromEnd(ListNode head, int n) {
-
+        ListNode result = new ListNode(4);
+        return result;
     }
 }
