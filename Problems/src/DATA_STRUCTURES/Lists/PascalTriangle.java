@@ -17,6 +17,7 @@ Output:
  */
 public class PascalTriangle {
     public static List<List<Integer>> generate(int numRows) {
+    	//add comments
         List<List<Integer>> triangle = new ArrayList<List<Integer>>();
         //First base case: if user requests zero rows, they get zero rows. 
 	if(numRows == 0) {
