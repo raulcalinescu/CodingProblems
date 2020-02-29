@@ -1,4 +1,6 @@
 package DATA_STRUCTURES.LinkedList;
+import java.util.LinkedList;
+import java.util.List;
 
 /*
 Given a linked list, remove the n-th node from the end of list and return its head.
@@ -19,9 +21,11 @@ Follow up:
         Could you do this in one pass?
  */
 
+import java.util.LinkedHashMap;
+
 public class removeNthNode {
 
-    public class ListNode {
+    public static class ListNode {
       int val;
       ListNode next;
       ListNode(int x) { val = x; }
@@ -41,12 +45,12 @@ public class removeNthNode {
         Finally, we return the dummy.next pointer (which is the old head).
      */
                 // The TWO PASS Algorithm
-    public ListNode removeNthFromEnd(ListNode head, int n) {
+    public static ListNode removeNthFromEndTwoPass(ListNode head, int n) {
         int length = 0;
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode first = head;
-        while(first.next != null) {
+        while(first != null) {
             length++;
             first = first.next;
         }
@@ -58,5 +62,25 @@ public class removeNthNode {
         }
         first.next = first.next.next;
         return dummy.next;   // dummy.next holds the head's address so we return that (1) to have LL 1->2->3->5
+    }
+
+    public static ListNode removeNthFromEndOnePass(ListNode head, int n) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode first = dummy;
+        ListNode second = dummy;
+        for(int i=1; i<=n+1; i++)
+            first = first.next;
+
+        while(first != null) {
+            first = first.next;
+            second = second.next;
+        }
+        second = second.next.next;
+        return dummy.next;  //or head
+    }
+
+    public static void main(String[] args) {
+
     }
 }
