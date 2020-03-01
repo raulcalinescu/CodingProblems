@@ -18,7 +18,7 @@ Write a function to find the longest common prefix string amongst an array of st
 
 public class longestCommonPrefix {
 
-    public String longestCommonPrefix(String[] strs) {
+    public static String longestCommonPrefix(String[] strs) {
         if(strs.length == 0)
             return "";
 
