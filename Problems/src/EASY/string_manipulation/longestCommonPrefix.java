@@ -15,39 +15,55 @@ Write a function to find the longest common prefix string amongst an array of st
         Explanation: There is no common prefix among the input strings.
 */
 
-// be aware of many corner cases:
-    // when strings are of different length watch for index out of bounds. solve this by setting a minimum size
-    //
+
 public class longestCommonPrefix {
 
-    public static String longestCommonPrefix(String[] strs) {
+    public String longestCommonPrefix(String[] strs) {
+        if(strs.length == 0)
+            return "";
+
+        for(int i=0; i < strs[0].length(); i++) {
+            char c = strs[0].charAt(i);
+            for(int j=1; j < strs.length; j++) {
+                if(i == strs[j].length() || strs[j].charAt(i) != c)
+                    return strs[0].substring(0,i);
+            }
+        }
+        return strs[0];
+    }
+
+    //vertical scanning - more optimal than horizontal since we limit the scanning from the beginning
+    public static String longestCommonPrefixMySol(String[] strs) {
         if(strs.length == 0)
             return "";
         char[] first = strs[0].toCharArray();
-        StringBuilder strB = new StringBuilder();
+        StringBuilder commonPrefix = new StringBuilder();
         int count = 0, min_length = first.length;
 
-        for (String s : strs)
-            if(s.length() < min_length)
+        for (String s : strs)                   // when strings are of different length watch for index out of bounds.
+            if(s.length() < min_length)             //solve this by setting a minimum size
                 min_length = s.length();
 
-        for(int c = 0; c < min_length; c++) {
-            for (String s : strs) {
+        for(int c = 0; c < min_length; c++) {       // for each character up to the minimum size of a string
+            for (String s : strs) {             // check for a match in the other strings
                 char[] temp = s.toCharArray();
                 if (first[c] == temp[c])
                     count++;
             }
-            if (count == strs.length) {
-                strB.append(first[c]);
+            if (count == strs.length) {     // if all strings matched the first string's character we add it to the prefix
+                commonPrefix.append(first[c]);
                 count = 0;
                 continue;
-            } else{
-              return strB.toString();
+            } else{                     // you only care about the first matching characters so as soon as we found one
+              return commonPrefix.toString();                   //that does not have it we return.
             }
         }
 
-        return strB.toString();
+        return commonPrefix.toString();
     }
+
+    // time complexity is O(S) where S is the sum of all characters in the array of strings.
+    // space complexity is O(1) because we only used constant EXTRA space.
 
     public static void main(String[] args) {
         String[] strs = {"hello","hell","hellonger"};
