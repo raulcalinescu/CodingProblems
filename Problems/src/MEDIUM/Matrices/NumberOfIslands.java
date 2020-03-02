@@ -21,6 +21,24 @@ Output: 3
 public class NumberOfIslands {
 
     public int numIslands(char[][] grid) {
+	    int numIslands = 0;
+	    for (int row=0; row<grid.length; row++)
+	        for (int col=0; col<grid[0].length; col++)
+		        if(grid[row][col]=='1') {
+		            numIslands++;
+		            dfs(grid,row,col);
+		        }
+	return numIslands;
+    }
+    public void dfs(char[][] grid, int row, int col) {
+        int numberOfRows = grid.length;
+        int numberOfCols = grid[0].length;
+        if(row < 0 || col < 0 || row <= numberOfRows || col <= numberOfCols || grid[row][col] == '0')
+            return;
 
     }
+    public void main(String[] args) {
+
+    }
+
 }
