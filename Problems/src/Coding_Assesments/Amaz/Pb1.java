@@ -1,13 +1,12 @@
 package Coding_Assesments.Amaz;
 
 import DATA_STRUCTURES.HashTables.Solution;
-import jdk.internal.joptsimple.internal.Strings;
 
 import java.util.*;
 
 public class Pb1 {
 
-    public ArrayList<String> popularNToys(int numToys,
+    public static ArrayList<String> popularNToys(int numToys,
                                           int topToys,
                                           List<String> toys,
                                           int numQuotes,
@@ -49,21 +48,7 @@ public class Pb1 {
             return topNToys;
         }
 
-    public void main(String[] args) {
-        Solution solution = new Solution();
-        int numToys = 6;
-        int topToys = 2;
-        List<String> toys = new ArrayList(){};
-        toys.add
-        int numQuotes = 6;
-        String[] quotes = {
-                "Emo is the hottest of the season! Elmo will be on every kid's wishlist!",
-                "The new Elmo dolls are super high quality",
-                "Expect the Elsa dolls to be very popular this year",
-                "Elsa and Elmo are the toys I'll be buying for my kids",
-                "For parents of older kids, look into buying them a drone",
-                "Warcraft is slowly rising in popularity ahead of the holiday season"};
-        List<String> result = solution.popularNToys(numToys, topToys, toys, numQuotes, quotes);
-        System.out.println(result.toString());
+    public static void main(String[] args) {
+
     }
 }
