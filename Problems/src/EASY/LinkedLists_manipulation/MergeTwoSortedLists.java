@@ -20,13 +20,34 @@ public class MergeTwoSortedLists {
     }
 
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if(l1 == null) return l2;
+        else if(l2 == null) return l1;
+            // keep track of head of the merged list with head, use curr to change pointers as we compare
+        ListNode head = new ListNode(0);
+        ListNode cur = head;
+        head.next = l1;         // make sure you assign the next field to one of the lists or else while loop is always false
+            // iterate until one of the two list reach the end
+        while(cur.next != null)
+            if(l1.val < l2.val) {
+                cur.next = l1;  // move the curr to the next smallest element
+                cur = l1;
+                l1 = l1.next;   // increase the pointer for list 1
+            } else {
+                cur.next = l2;
+                cur = l2;
+                l2 = l2.next;
+            }
 
+        if(l1 == null) cur.next = l2;   // if we ended l1, connect the merged lists to the remaining elements in l2
+        else if(l2 == null) cur.next = l1;  // else, do the same on l1
+
+        return head.next;   // return the head of the list from first smallest sorted element
     }
 
     public static void main(String[] args) {
         ListNode test1 = new ListNode(1);
-        test1.next = new ListNode(2);
-        test1.next.next = new ListNode(4);
+        test1.next = new ListNode(7);
+        test1.next.next = new ListNode(9);
 
         ListNode test2 = new ListNode(1);
         test2.next = new ListNode(3);
