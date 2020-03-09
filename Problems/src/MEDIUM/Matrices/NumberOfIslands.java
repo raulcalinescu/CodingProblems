@@ -35,7 +35,6 @@ public class NumberOfIslands {
         int numberOfCols = grid[0].length;
         if(row < 0 || col < 0 || row <= numberOfRows || col <= numberOfCols || grid[row][col] == '0')
             return;
-
     }
     public void main(String[] args) {
 
