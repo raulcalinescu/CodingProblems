@@ -33,6 +33,16 @@ import java.util.Stack;
 
 public class validParentheses {
 
+    public static boolean isValid(String s) {
+        if(s == "") return true;
+        char[] c = s.toCharArray();
+        int count = 0;
+        for(int i=0; i < c.length; i++)
+            if(c[i] == '(' || c[i] == '[' || c[i] == '{')
+                count++;
+                return true;
+    }
+
     public static boolean isValid_MyUglySolution(String s) {  // works but timed out -- too long
         if(s=="") return true;
         Stack<Character> st = new Stack();
