@@ -29,21 +29,46 @@ Output: false
     ()()[{}]
  */
 
+import java.util.HashMap;
 import java.util.Stack;
 
 public class validParentheses {
 
-    public static boolean isValid(String s) {
-        if(s == "") return true;
-        char[] c = s.toCharArray();
-        int count = 0;
-        for(int i=0; i < c.length; i++)
-            if(c[i] == '(' || c[i] == '[' || c[i] == '{')
-                count++;
-                return true;
+    /*
+    An interesting property about a valid parenthesis expression is that a sub-expression of
+    a valid expression should also be a valid expression. (Not every sub-expression)
+    What if whenever we encounter a matching pair of parenthesis in the expression,
+    we simply remove it from the expression?
+
+    The stack data structure can come in handy here in representing this recursive structure of the problem.
+    We can't really process this from the inside out because we don't have an idea about the overall structure.
+    But, the stack can help us process this recursively i.e. from outside to inwards.
+     */
+    public HashMap<Character,Character> parenthesesMap;
+    public validParentheses() {
+        this.parenthesesMap = new HashMap<Character, Character>();
+        this.parenthesesMap.put(')','(');
+        this.parenthesesMap.put(']','[');
+        this.parenthesesMap.put('}','{');
+    }
+    public boolean isValid(String s) {
+        Stack<Character> st = new Stack<Character>();
+        for(int i=0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if(this.parenthesesMap.containsKey(c)){
+                char topOfStack = st.empty()? '#' : st.pop();
+                if(topOfStack != this.parenthesesMap.get(c))
+                    return false;
+                else {
+                   st.push(c);
+                }
+            }
+        }
+        return st.empty();
     }
 
-    public static boolean isValid_MyUglySolution(String s) {  // works but timed out -- too long
+    // O(n) time and O(n) space
+    public static boolean isValid_MyUglySolution_faster1msthan99perc(String s) {  // works but timed out -- too long
         if(s=="") return true;
         Stack<Character> st = new Stack();
         char[] c = s.toCharArray();
