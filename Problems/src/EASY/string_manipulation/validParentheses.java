@@ -1,4 +1,4 @@
-package EASY.string_manipulation;
+/*package EASY.string_manipulation;
 
 /*
 Given a string containing just the characters '(', ')', '{', '}', '[' and ']',
@@ -27,7 +27,7 @@ Output: false
     }
 
     ()()[{}]
- */
+
 
 import java.util.HashMap;
 import java.util.Stack;
@@ -43,7 +43,7 @@ public class validParentheses {
     The stack data structure can come in handy here in representing this recursive structure of the problem.
     We can't really process this from the inside out because we don't have an idea about the overall structure.
     But, the stack can help us process this recursively i.e. from outside to inwards.
-     */
+
     public HashMap<Character,Character> parenthesesMap;
     public validParentheses() {
         this.parenthesesMap = new HashMap<Character, Character>();
@@ -131,3 +131,4 @@ public class validParentheses {
     }
 
 }
+*/
