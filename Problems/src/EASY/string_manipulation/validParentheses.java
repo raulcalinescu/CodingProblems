@@ -55,13 +55,12 @@ public class validParentheses {
         Stack<Character> st = new Stack<Character>();
         for(int i=0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if(this.parenthesesMap.containsKey(c)){
-                char topOfStack = st.empty()? '#' : st.pop();
-                if(topOfStack != this.parenthesesMap.get(c))
+            if(this.parenthesesMap.containsKey(c)) {  // if closing bracket
+                char topOfStack = st.empty() ? '#' : st.pop();
+                if (topOfStack != this.parenthesesMap.get(c))
                     return false;
-                else {
-                   st.push(c);
-                }
+            } else {
+                   st.push(c);      // if open bracket
             }
         }
         return st.empty();
