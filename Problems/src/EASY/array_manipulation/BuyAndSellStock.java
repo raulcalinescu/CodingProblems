@@ -16,15 +16,21 @@ Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-
 
 public class BuyAndSellStock {
 
-    // forgot to consider that we are treating it as a 1-index based array. < -- didn't even matter
-    // you had to return the maximum profit not the index that gives you maximum profit.  < -- READ Carefully
+    // USE an x-y graph plot representation of the numbers as we need to find the highest peak in array following the
+    // smallest valley
 
     public static int maxProfit(int[] prices) {
-        int maxProfit = 0;
-
-        return 0;
+      int min = Integer.MAX_VALUE, maxProf = 0;
+      for(int i=0; i<prices.length; i++) {
+          if (prices[i] < min)
+              min = prices[i];                  // we keep iterating until we don't have a min = valley
+          else if (prices[i] - min > maxProf)      // if we go up, we want to check if it's the max peak so far
+              maxProf = prices[i] - min;
+      }
+          return maxProf;
     }
-
+    // forgot to consider that we are treating it as a 1-index based array. < -- didn't even matter
+    // you had to return the maximum profit not the index that gives you maximum profit.  < -- READ Carefully
     public static int maxProfitFailed(int[] prices) {
         int minVal = Integer.MAX_VALUE, minInd = 0;
         for(int i=0; i<prices.length; i++)
