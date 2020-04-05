@@ -29,6 +29,8 @@ public class BuyAndSellStock {
       }
           return maxProf;
     }
+
+    // My First Solution:
     // forgot to consider that we are treating it as a 1-index based array. < -- didn't even matter
     // you had to return the maximum profit not the index that gives you maximum profit.  < -- READ Carefully
     public static int maxProfitFailed(int[] prices) {
