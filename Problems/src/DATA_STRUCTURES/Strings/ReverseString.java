@@ -24,7 +24,7 @@ public class ReverseString {
         char temp;
         for(int i = 0; i < s.length / 2; i++) {
             temp = s[i];
-            s[i] = s[s.length - 1 - i];
+            s[i] = s[s.length - 1 - i];         // pay attention to indexing (0 - based)
             s[s.length - 1 - i] = temp;
         }
     }
