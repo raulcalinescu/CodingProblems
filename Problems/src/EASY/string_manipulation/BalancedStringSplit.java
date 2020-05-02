@@ -62,6 +62,6 @@ public class BalancedStringSplit {
 
     public static void main(String[] args) {
         String s = "LRRLRRLL";
-        System.out.println(balancedStringSplit(s));
+        System.out.println(balancedStringSplit1(s));
     }
 }
