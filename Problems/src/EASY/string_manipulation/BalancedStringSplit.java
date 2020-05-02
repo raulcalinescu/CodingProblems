@@ -30,7 +30,26 @@ s[i] = 'L' or 'R'
 
  */
 public class BalancedStringSplit {
-    public static int balancedStringSplit(String s) {
+    // I like the balanced variable approach. one shorter variable
+    public int balancedStringSplit(String s) {
+        int balance = 0;
+        int count = 0;
+        for(int i = 0; i < s.length(); i++) {
+            if(s.charAt(i) == 'L') {   // Hint 1
+                balance++;
+            }
+            if(s.charAt(i) == 'R') {  // Hint 1
+                balance--;
+            }
+            if(balance == 0) { // Hint 2
+                count++;
+            }
+        }
+        return count;
+    }
+
+    //my sol
+    public static int balancedStringSplit1(String s) {
         char[] str = s.toCharArray();
         int R=0, L=0, cnt=0;
         for(int c = 0; c < str.length; c++) {
