@@ -20,7 +20,7 @@ public class SortArrayByParity {
                 temp = A[i];
                 A[i] = A[parInd];
                 A[parInd] = temp;
-                parInd++;
+                parInd++; // when an even was swaped, increase the next available location
             } // if non of the branches are true, just iterate to next value in array
         }
         return A;
