@@ -34,6 +34,7 @@ public class OddCountCharString {
     }
 
     public static void main(String[] args) {
-        System.out.println(generateTheString(0));
+        //constraing 1 <= n <= 500, so no 0 arguments
+        System.out.println(generateTheString(1));
     }
 }
